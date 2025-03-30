@@ -8,7 +8,7 @@ import Layout from '../layouts/BlogPost.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Server | Nieuserver.online</title>
     <style>
-        /* Reused styles from homepage */
+        /* Consistent homepage styling */
         * {
             margin: 0;
             padding: 0;
@@ -30,10 +30,10 @@ import Layout from '../layouts/BlogPost.astro';
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 300px;
+            height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -41,13 +41,7 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid #2e8b57; /* Minecraft green */
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-bottom: 4px solid #2e8b57;
         }
         
         .dev-banner {
@@ -79,65 +73,25 @@ import Layout from '../layouts/BlogPost.astro';
             padding-bottom: 8px;
         }
         
-        .card p {
-            margin-bottom: 15px;
-            color: #b0b0b0;
-        }
-        
-        footer {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 25px 0;
-            margin-top: 40px;
-            border-top: 3px solid #2e8b57;
-        }
-        
-        nav {
-            background: #1a1a1a;
-            padding: 12px 0;
-            border-bottom: 2px solid #2e8b57;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-        }
-        
-        nav ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover {
+        .tech-pill {
+            display: inline-block;
+            background: rgba(46, 139, 87, 0.2);
             color: #2e8b57;
-            background: rgba(46, 139, 87, 0.1);
-        }
-        
-        .active {
-            color: #2e8b57;
-            border-bottom: 2px solid #2e8b57;
-        }
-        
-        .server-info {
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-            font-family: monospace;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
             border: 1px solid #2e8b57;
         }
         
-        .rules li {
-            margin-bottom: 10px;
-            margin-left: 20px;
+        .status-disabled {
+            background: #ff9800;
+            color: #2a2a2a;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
         }
         
         .btn {
@@ -155,110 +109,119 @@ import Layout from '../layouts/BlogPost.astro';
         .btn:hover {
             background: #25734a;
         }
-        
-        .status-disabled {
-            background: #ff9800;
-            color: #2a2a2a;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            margin: 20px 0;
-            font-weight: bold;
-        }
 
-        @media (max-width: 768px) {
-            header {
-                height: 250px;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                gap: 10px;
-            }
+        /* Custom gamemode highlight */
+        .gamemode-card {
+            background: linear-gradient(rgba(40, 40, 40, 0.9), rgba(40, 40, 40, 0.9)), 
+                        url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            border: 2px solid #ff9800;
+        }
+        
+        .gamemode-card h2 {
+            color: #ff9800;
+            border-color: #ff9800;
         }
     </style>
 </head>
 <body>
     <div class="dev-banner">
-        🚧 Minecraft Server Under Development - Estimated Launch: Q3 2025 🚧
+        🚧 Under Active Development - Targeted Launch: Q3 2025 🚧
     </div>
-    
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/minecraft" class="active">Minecraft</a></li>
-            <li><a href="/terraria">Terraria</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
     
     <header>
         <h1>Nieuserver Minecraft</h1>
-        <p>Building a better survival experience (Coming Soon)</p>
+        <p>Custom gameplay experiences powered by mods and plugins</p>
     </header>
     
     <div class="container">
         <div class="card">
-            <h2>Server Preview</h2>
+            <h2>Core Server Features</h2>
             <div class="status-disabled">
                 SERVER OFFLINE - IN DEVELOPMENT
             </div>
-            <div class="server-info">
-                <p><strong>Planned Address:</strong> mc.nieuserver.online</p>
-                <p><strong>Target Version:</strong> 1.20.4 (Java Edition)</p>
-                <p><strong>Expected Features:</strong> 50 player slots, Survival mode</p>
+            <p>Our Minecraft server will offer multiple gameplay modes using these technologies:</p>
+            
+            <h3 style="color: #b0b0b0; margin: 20px 0 10px;">Primary Mods/Plugins</h3>
+            <div>
+                <span class="tech-pill">PaperMC</span>
+                <span class="tech-pill">GeyserMC</span>
+                <span class="tech-pill">LuckPerms</span>
+                <span class="tech-pill">GriefPrevention</span>
+                <span class="tech-pill">Dynmap</span>
+                <span class="tech-pill">SlimeWorldManager</span>
             </div>
-            <p>We're currently configuring the server with these planned features:</p>
-            <ul class="rules">
-                <li>Vanilla+ gameplay (minor quality-of-life plugins only)</li>
-                <li>Land claim system to prevent griefing</li>
-                <li>Regular world backups</li>
-                <li>Dynmap integration</li>
-                <li>Basic economy system (optional)</li>
+            
+            <h3 style="color: #b0b0b0; margin: 20px 0 10px;">Gameplay Enhancements</h3>
+            <ul>
+                <li>Cross-play between Java and Bedrock editions</li>
+                <li>Custom terrain generation with Biomes O' Plenty</li>
+                <li>Enhanced mob AI and boss fights</li>
+                <li>Player-run shops with ChestShop</li>
+                <li>Quality-of-life inventory management</li>
             </ul>
         </div>
         
-        <div class="card">
-            <h2>Development Progress</h2>
-            <p>Current status of server setup:</p>
-            <ul class="rules">
-                <li>✅ Server hardware ready</li>
-                <li>🟡 Core plugins configured (testing phase)</li>
-                <li>🔴 World generation not finalized</li>
-                <li>🟡 Anti-cheat systems being tested</li>
-                <li>🔴 Backup systems pending</li>
+        <div class="card gamemode-card">
+            <h2>Custom Gamemode: Skyland Survival</h2>
+            <p>Currently in development - A unique twist on skyblock gameplay:</p>
+            <ul>
+                <li>Procedurally generated floating islands</li>
+                <li>Resource scarcity with custom recipes</li>
+                <li>Island-level progression system</li>
+                <li>Special events and challenges</li>
+                <li>Team-based island claiming</li>
             </ul>
-            <p>We're prioritizing stability over rushing to launch. Beta testing will be announced on our homepage.</p>
+            <a href="/skyland-survival" class="btn">Learn More About Skyland</a>
+            <p style="margin-top: 15px; font-style: italic;">Expected release after main server launch</p>
         </div>
         
         <div class="card">
-            <h2>Planned Rules</h2>
-            <p>The final server will enforce these rules:</p>
-            <ul class="rules">
-                <li>No griefing or stealing</li>
-                <li>PvP requires mutual consent</li>
-                <li>No hacked clients or exploits</li>
-                <li>Keep chat appropriate for all ages</li>
-                <li>Staff decisions are final</li>
-            </ul>
-            <p>Detailed rules will be posted before launch.</p>
+            <h2>Technical Implementation</h2>
+            <p>How we're building this:</p>
+            <div style="background: #2a2a2a; padding: 20px; border-radius: 6px; margin: 20px 0; border: 1px solid #444;">
+                <h3 style="color: #2e8b57; margin-bottom: 10px;">Server Stack</h3>
+                <p><strong>Host:</strong> Dedicated Ryzen 7 5800X (8c/16t)</p>
+                <p><strong>RAM:</strong> 32GB allocated</p>
+                <p><strong>Storage:</strong> NVMe SSD with nightly backups</p>
+                <p><strong>Network:</strong> 1Gbps uplink with DDoS protection</p>
+            </div>
+            
+            <h3 style="color: #b0b0b0; margin: 20px 0 10px;">Current Development Focus</h3>
+            <ol>
+                <li>Core plugin compatibility testing</li>
+                <li>Custom configs for balanced gameplay</li>
+                <li>Performance benchmarking</li>
+                <li>Modpack optimization</li>
+            </ol>
         </div>
         
         <div class="card">
-            <h2>Stay Updated</h2>
-            <p>Want to know when we launch?</p>
-            <p>Check back on this page or join our Discord for announcements.</p>
-            <a href="/" class="btn">Return to Homepage</a>
+            <h2>Roadmap</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="background: #2a2a2a; padding: 15px; border-radius: 6px; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #ff9800;">Phase 1 (Now - June 2025)</h3>
+                    <p>Core server setup and basic plugin configuration</p>
+                </div>
+                <div style="background: #2a2a2a; padding: 15px; border-radius: 6px; border-left: 4px solid #4CAF50;">
+                    <h3 style="color: #4CAF50;">Phase 2 (July 2025)</h3>
+                    <p>Closed beta testing with select community members</p>
+                </div>
+                <div style="background: #2a2a2a; padding: 15px; border-radius: 6px; border-left: 4px solid #2196F3;">
+                    <h3 style="color: #2196F3;">Phase 3 (August 2025)</h3>
+                    <p>Public launch with core features</p>
+                </div>
+                <div style="background: #2a2a2a; padding: 15px; border-radius: 6px; border-left: 4px solid #9C27B0;">
+                    <h3 style="color: #9C27B0;">Phase 4 (Late 2025)</h3>
+                    <p>Skyland Survival gamemode release</p>
+                </div>
+            </div>
         </div>
     </div>
     
-    <footer>
+    <footer style="border-top: 3px solid #2e8b57;">
         <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
-        <p>Not affiliated with Mojang or Microsoft</p>
+        <p>All game content copyright their respective owners</p>
     </footer>
 </body>
 </html>
