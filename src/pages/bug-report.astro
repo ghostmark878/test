@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Reports | Nieuserver.online</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-bg: #383838;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent-green: #4CAF50;
+            --bug-red: #e74c3c;
+            --border-radius: 8px;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1587202372775-e229f172cdd0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            border-bottom: 4px solid var(--bug-red);
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid var(--bug-red);
+        }
+        
+        h1 {
+            color: var(--bug-red);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: var(--text-primary);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: var(--bug-red);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+        }
+        
+        .required {
+            color: var(--bug-red);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Report a Bug</h1>
+        <p>Help us improve by reporting issues you encounter</p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <form action="https://formsubmit.co/support@nieuserver.online" method="POST">
+                <input type="hidden" name="_subject" value="New Bug Report - Nieuserver">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://nieuserver.online/bug-report-thank-you">
+                
+                <div class="form-group">
+                    <label for="bug-title">Bug Title <span class="required">*</span></label>
+                    <input type="text" id="bug-title" name="Bug Title" required placeholder="Brief description of the issue">
+                </div>
+                
+                <div class="form-group">
+                    <label for="bug-type">Type of Bug <span class="required">*</span></label>
+                    <select id="bug-type" name="Bug Type" required>
+                        <option value="">Select bug type</option>
+                        <option value="Gameplay">Gameplay Issue</option>
+                        <option value="Server">Server Problem</option>
+                        <option value="Website">Website Bug</option>
+                        <option value="Security">Security Concern</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bug-game">Affected Game/Service <span class="required">*</span></label>
+                    <select id="bug-game" name="Affected Game" required>
+                        <option value="">Select affected service</option>
+                        <option value="Minecraft">Minecraft Server</option>
+                        <option value="Terraria">Terraria Server</option>
+                        <option value="Website">Website</option>
+                        <option value="All">All Services</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bug-description">Detailed Description <span class="required">*</span></label>
+                    <textarea id="bug-description" name="Description" required placeholder="Please describe the bug in detail, including steps to reproduce if possible"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-email">Your Email (optional)</label>
+                    <input type="email" id="contact-email" name="Email" placeholder="If you'd like us to follow up with you">
+                </div>
+                
+                <button type="submit" class="btn">Submit Bug Report</button>
+            </form>
+        </div>
+        
+        <div class="card">
+            <h2>Bug Reporting Guidelines</h2>
+            <ul>
+                <li>Be as specific as possible about the issue</li>
+                <li>Include steps to reproduce the bug if you can</li>
+                <li>Mention when the issue first occurred</li>
+                <li>For server issues, include your username if relevant</li>
+                <li>We review all reports but may not respond to each individually</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
