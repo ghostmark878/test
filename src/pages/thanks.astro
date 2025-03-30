@@ -2,7 +2,7 @@
 import Layout from '../layouts/BlogPost.astro';
 ---
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@ import Layout from '../layouts/BlogPost.astro';
             --card-bg: #383838;
             --text-primary: #e0e0e0;
             --accent-green: #4CAF50;
+            --bug-red: #e74c3c;
             --border-radius: 8px;
         }
         
@@ -48,38 +49,7 @@ import Layout from '../layouts/BlogPost.astro';
             border-bottom: 4px solid var(--accent-green);
         }
         
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            margin: 30px 0;
-            border: 1px solid var(--accent-green);
-        }
-        
-        h1 {
-            color: var(--accent-green);
-            margin-bottom: 20px;
-        }
-        
-        .btn {
-            background: var(--accent-green);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 20px;
-        }
-        
-        .btn:hover {
-            background: #45a049;
-        }
-        
-        /* Navigation (same as bug-report.html) */
+        /* Navigation Styles - Matches bug-report.html */
         nav {
             background: #1a1a1a;
             padding: 15px 0;
@@ -109,6 +79,52 @@ import Layout from '../layouts/BlogPost.astro';
             color: var(--accent-green);
             background: rgba(76, 175, 80, 0.1);
         }
+        
+        nav ul li a.active {
+            color: var(--accent-green);
+            border-bottom: 2px solid var(--accent-green);
+            pointer-events: none;
+            cursor: default;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid var(--accent-green);
+        }
+        
+        h1 {
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background: #45a049;
+        }
+        
+        .btn-bug {
+            background: var(--bug-red);
+        }
+        
+        .btn-bug:hover {
+            background: #c0392b;
+        }
     </style>
 </head>
 <body>
@@ -116,7 +132,10 @@ import Layout from '../layouts/BlogPost.astro';
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/minecraft">Minecraft</a></li>
-            <li><a href="/bug-report">Bug Report</a></li>
+            <li><a href="/terraria">Terraria</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+       
         </ul>
     </nav>
     
@@ -129,8 +148,11 @@ import Layout from '../layouts/BlogPost.astro';
         <div class="card">
             <p>We appreciate your help in improving Nieuserver. Our team will review your report shortly.</p>
             <p>You'll only be contacted if we need additional information.</p>
-            <a href="/" class="btn">Return to Homepage</a>
-            <a href="/bug-report" class="btn" style="background: #3498db;">Submit Another Report</a>
+            
+            <div style="margin-top: 30px;">
+                <a href="/" class="btn">Return to Homepage</a>
+                <a href="/bug-report" class="btn btn-bug">Submit Another Report</a>
+            </div>
         </div>
     </div>
 </body>
