@@ -1,62 +1,302 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Nieuserver.online | Minecraft & Terraria Server Hub</title>
+    <!-- Reused styles from homepage for consistency -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .dev-banner {
+            background: linear-gradient(90deg, #ff6b00, #ff9800);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            border-bottom: 4px solid #4CAF50;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            border-color: #4CAF50;
+            transform: translateY(-2px);
+        }
+        
+        .card {
+            background: #383838;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid #4CAF50;
+        }
+        
+        .card h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+            color: #b0b0b0;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            border-top: 3px solid #4CAF50;
+        }
+        
+        footer .domain {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 1.1rem;
+        }
+        
+        nav {
+            background: #1a1a1a;
+            padding: 12px 0;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 5px 15px;
+        }
+        
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .pixel-divider {
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #4CAF50,
+                #4CAF50 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 20px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .team-member {
+            background: #383838;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #4CAF50;
+        }
+        
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .team-member h3 {
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        
+        .team-member .role {
+            color: #ff9800;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
-
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+        @media (max-width: 768px) {
+            header {
+                height: 250px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dev-banner">
+        🚧 New Features Coming in 2025 - Stay Tuned! 🚧
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/minecraft">Minecraft</a></li>
+            <li><a href="/terraria">Terraria</a></li>
+            <li><a href="/about" class="active">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>About Nieuserver.online</h1>
+        <p>Learn about our mission, team, and what makes our servers special</p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Our Story</h2>
+            <p>Founded in 2024, Nieuserver.online began as a passion project between friends who wanted to create high-quality gaming experiences. What started as a small Minecraft server has grown into a multi-game community hub launching in 2025.</p>
+            <p>We believe in player-driven worlds where creativity and community thrive. Our servers are designed to be welcoming spaces for both casual and dedicated gamers.</p>
+        </div>
+        
+        <div class="pixel-divider"></div>
+        
+        <div class="card">
+            <h2>Server Features</h2>
+            <p><strong>What sets us apart:</strong></p>
+            <ul style="margin-left: 20px; margin-bottom: 20px; color: #b0b0b0;">
+                <li>99.9% uptime guaranteed</li>
+                <li>Dedicated hardware for lag-free gameplay</li>
+                <li>Regular content updates and events</li>
+                <li>Balanced modpacks (optional for Minecraft)</li>
+                <li>Active admin team against griefing</li>
+                <li>Cross-platform support where possible</li>
+            </ul>
+            <p>Our Terraria server will feature custom biomes and challenges, while our Minecraft server offers both vanilla and modded experiences.</p>
+        </div>
+        
+        <div class="pixel-divider"></div>
+        
+        <h2 style="text-align: center; color: #4CAF50; margin: 40px 0 20px;">Meet the Team</h2>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Founder">
+                <h3>Alex Nieuwenhuis</h3>
+                <div class="role">Founder & Server Architect</div>
+                <p>10+ years of server administration experience. Builds the tech that makes our worlds run smoothly.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Community Manager">
+                <h3>Jamie Rivera</h3>
+                <div class="role">Community Manager</div>
+                <p>Creates welcoming spaces and organizes epic in-game events. Your go-to for server questions.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Content Designer">
+                <h3>Sam Chen</h3>
+                <div class="role">Content Designer</div>
+                <p>Designs custom Terraria biomes and Minecraft mod integrations. The creative force behind our worlds.</p>
+            </div>
+        </div>
+        
+        <div class="pixel-divider"></div>
+        
+        <div class="card">
+            <h2>Our Values</h2>
+            <p><strong>Community First:</strong> We actively listen to player feedback through Discord and in-game polls.</p>
+            <p><strong>Fair Play:</strong> Strict anti-cheat measures with transparent moderation policies.</p>
+            <p><strong>Innovation:</strong> Regular seasonal events and gameplay twists to keep things fresh.</p>
+            <p><strong>Accessibility:</strong> Servers optimized for global players with multiple world regions.</p>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 <span class="domain">nieuserver.online</span></p>
+        <p>Crafting memorable gaming experiences since 2024</p>
+    </footer>
+</body>
+</html>
