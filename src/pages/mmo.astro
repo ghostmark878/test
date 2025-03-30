@@ -1,361 +1,167 @@
----
-import Layout from '../layouts/BlogPost.astro';
----
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hunter's Squire MMO | Nieuserver.online</title>
-    <style>
-        /* Consistent styling with other pages */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<div class="container">
+    <div class="card">
+        <h2>Classic Fantasy Classes</h2>
+        <div class="dev-note">
+            These are our planned classes for the initial release. Class mechanics, skills, 
+            and roles may change during development based on testing and feedback.
+        </div>
         
-        body {
-            background-color: #2a2a2a;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-            border-bottom: 4px solid #d35400;
-        }
-        
-        .dev-banner {
-            background: linear-gradient(90deg, #ff6b00, #ff9800);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        nav {
-            background: #1a1a1a;
-            padding: 15px 0;
-            border-bottom: 2px solid #d35400;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-        }
-        
-        nav ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: #d35400;
-            background: rgba(211, 84, 0, 0.1);
-        }
-        
-        .active {
-            color: #d35400;
-            border-bottom: 2px solid #d35400;
-        }
-        
-        .card {
-            background: #383838;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            margin: 40px 0;
-            border: 1px solid #d35400;
-        }
-        
-        .card h2 {
-            color: #d35400;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #d35400;
-            padding-bottom: 8px;
-        }
-        
-        .dev-note {
-            background: rgba(255, 152, 0, 0.1);
-            border-left: 4px solid #ff9800;
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .class-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .class-card {
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #d35400;
-        }
-        
-        .class-card h3 {
-            color: #d35400;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .class-icon {
-            width: 24px;
-            height: 24px;
-            background: #d35400;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        
-        .role-tag {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: 10px;
-        }
-        
-        .tank { background: #3498db; }
-        .healer { background: #2ecc71; }
-        .melee { background: #e74c3c; }
-        .ranged { background: #f39c12; }
-        .caster { background: #9b59b6; }
-        
-        .skill-tree {
-            margin-top: 15px;
-        }
-        
-        .skill {
-            margin-bottom: 12px;
-        }
-        
-        .skill-name {
-            color: #d35400;
-            font-weight: bold;
-        }
-        
-        .skill-desc {
-            font-size: 0.9rem;
-            color: #b0b0b0;
-        }
-    </style>
-</head>
-<body>
-    <div class="dev-banner">
-         EXPERIMENTAL PREVIEW - All features subject to change 
-    </div>
-    
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/minecraft">Minecraft</a></li>
-            <li><a href="/terraria">Terraria</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <header>
-        <h1>HUNTER'S SQUIRE</h1>
-        <p>A classic fantasy MMORPG experience in development</p>
-        <p><em>Currently in prototype phase - nothing is final</em></p>
-    </header>
-    
-    <div class="container">
-        <div class="card">
-            <h2>Classic Fantasy Classes</h2>
-            <div class="dev-note">
-                These are our planned classes for the initial release. Class mechanics, skills, 
-                and roles may change during development based on testing and feedback.
+        <div class="class-grid">
+            <!-- Tank Classes -->
+            <div class="class-card">
+                <h3>Paladin <span class="role-tag tank">Tank</span> <span class="role-tag healer">Support</span></h3>
+                <p>Holy warriors who protect allies with divine magic and heavy armor. Wields sword and shield.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Divine Aegis</span>
+                        <span class="skill-desc">Create a protective aura that reduces damage taken by allies by 25% for 8 seconds.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Hammer of Justice</span>
+                        <span class="skill-desc">Stun an enemy and generate high threat (4 second stun).</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Lay on Hands</span>
+                        <span class="skill-desc">Instantly heal a target for 50% of their maximum health (3 min cooldown).</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="class-grid">
-                <!-- Tank Classes -->
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Paladin <span class="role-tag tank">Tank</span></h3>
-                    <p>Holy warriors who protect allies with divine magic and heavy armor.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Divine Aegis</span>
-                            <p class="skill-desc">Create a protective aura that reduces damage taken by allies by 25% for 8 seconds.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Hammer of Justice</span>
-                            <p class="skill-desc">Stun an enemy and generate high threat (4 second stun).</p>
-                        </div>
+            <div class="class-card">
+                <h3>Warrior <span class="role-tag tank">Tank</span> <span class="role-tag melee">DPS</span></h3>
+                <p>Masters of weaponry who rely on heavy armor and pure strength to dominate the battlefield.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Shield Wall</span>
+                        <span class="skill-desc">Reduce all damage taken by 60% for 8 seconds.</span>
                     </div>
-                </div>
-                
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Guardian <span class="role-tag tank">Tank</span></h3>
-                    <p>Nature's protectors who use earth magic to shield themselves and allies.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Stoneform</span>
-                            <p class="skill-desc">Become immune to crowd control and reduce damage by 40% for 6 seconds.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Root Barrier</span>
-                            <p class="skill-desc">Summon roots that block projectiles and reduce area damage by 30%.</p>
-                        </div>
+                    <div class="skill">
+                        <span class="skill-name">Mortal Strike</span>
+                        <span class="skill-desc">A powerful attack that reduces healing received by the target by 50% for 6 seconds.</span>
                     </div>
-                </div>
-                
-                <!-- Healer Classes -->
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Cleric <span class="role-tag healer">Healer</span></h3>
-                    <p>Devout healers who channel holy energy to mend wounds and purge ailments.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Sacred Light</span>
-                            <p class="skill-desc">Powerful single-target heal that also removes 1 debuff.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Circle of Renewal</span>
-                            <p class="skill-desc">Create a healing zone that restores health to all allies inside every 2 seconds for 10 seconds.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Druid <span class="role-tag healer">Healer</span></h3>
-                    <p>Versatile nature mages who heal through rejuvenating herbs and animal spirits.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Lifebloom</span>
-                            <p class="skill-desc">Heal over time that blooms for a large heal when expired or dispelled.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Spirit Link</span>
-                            <p class="skill-desc">Distribute damage taken among linked allies for 12 seconds.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Melee DPS -->
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Berserker <span class="role-tag melee">Melee DPS</span></h3>
-                    <p>Frenzied warriors who trade defense for overwhelming offense.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Blood Frenzy</span>
-                            <p class="skill-desc">Increase attack speed by 30% but take 10% more damage for 15 seconds.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Whirlwind</span>
-                            <p class="skill-desc">Spin attack hitting all nearby enemies every second for 4 seconds.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Rogue <span class="role-tag melee">Melee DPS</span></h3>
-                    <p>Stealthy assassins who strike vulnerable points for massive damage.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Shadowstrike</span>
-                            <p class="skill-desc">Teleport behind target and deal 300% weapon damage (usable from stealth).</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Poison Mastery</span>
-                            <p class="skill-desc">All attacks apply stacking poison for 15% weapon damage over 6 seconds.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Ranged DPS -->
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Ranger <span class="role-tag ranged">Ranged DPS</span></h3>
-                    <p>Masters of archery who excel at sustained damage from a distance.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Barrage</span>
-                            <p class="skill-desc">Rapidly fire 5 arrows at your target in 2 seconds.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Explosive Trap</span>
-                            <p class="skill-desc">Place a trap that detonates when enemies approach, knocking them back.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Caster DPS -->
-                <div class="class-card">
-                    <h3><span class="class-icon"></span>Elementalist <span class="role-tag caster">Caster DPS</span></h3>
-                    <p>Masters of fire, frost, and lightning who unleash devastating spells.</p>
-                    <div class="skill-tree">
-                        <div class="skill">
-                            <span class="skill-name">Meteor Shower</span>
-                            <p class="skill-desc">Call down 5 meteors over an area in 3 seconds.</p>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Elemental Attunement</span>
-                            <p class="skill-desc">Cycle between fire (damage), frost (slow), and lightning (stun) modes.</p>
-                        </div>
+                    <div class="skill">
+                        <span class="skill-name">Charge</span>
+                        <span class="skill-desc">Rush to an enemy, stunning them for 1 second and generating high threat.</span>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="card">
-            <h2>Development Status</h2>
-            <div class="dev-note">
-                <strong>Important:</strong> This project is in early development. All features shown here are prototypes 
-                and may change significantly before release. Class balance, skills, and even core mechanics 
-                are subject to complete revision based on testing.
+            
+            <!-- Healer Classes -->
+            <div class="class-card">
+                <h3>Cleric <span class="role-tag healer">Healer</span> <span class="role-tag caster">Support</span></h3>
+                <p>Devout healers who channel holy energy to mend wounds and purge ailments.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Sacred Light</span>
+                        <span class="skill-desc">Powerful single-target heal that also removes 1 debuff.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Circle of Renewal</span>
+                        <span class="skill-desc">Create a healing zone that restores health to all allies inside every 2 seconds for 10 seconds.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Divine Intervention</span>
+                        <span class="skill-desc">Make a target immune to all damage for 10 seconds, but they cannot act (30 min cooldown).</span>
+                    </div>
+                </div>
             </div>
-            <p>Current focus areas:</p>
-            <ul>
-                <li>Core combat system prototyping</li>
-                <li>Class ability framework</li>
-                <li>World building tools</li>
-                <li>Server infrastructure</li>
-            </ul>
+            
+            <div class="class-card">
+                <h3>Druid <span class="role-tag healer">Healer</span> <span class="role-tag ranged">DPS</span></h3>
+                <p>Versatile nature guardians who can shapeshift and harness the power of the wilds.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Rejuvenation</span>
+                        <span class="skill-desc">Heal a target over 12 seconds.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Bear Form</span>
+                        <span class="skill-desc">Transform into a bear, increasing armor by 200% and health by 25%.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Moonfire</span>
+                        <span class="skill-desc">Instant spell that damages the target and then burns them for additional damage over 12 seconds.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Melee DPS Classes -->
+            <div class="class-card">
+                <h3>Rogue <span class="role-tag melee">DPS</span></h3>
+                <p>Stealthy assassins who specialize in quick strikes and deadly poisons.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Stealth</span>
+                        <span class="skill-desc">Become nearly invisible until you attack or take damage.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Backstab</span>
+                        <span class="skill-desc">Deal 250% weapon damage to a target when behind them.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Evasion</span>
+                        <span class="skill-desc">Dodge all melee attacks for 10 seconds.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <h3>Monk <span class="role-tag melee">DPS</span> <span class="role-tag healer">Support</span></h3>
+                <p>Martial artists who combine quick strikes with mystical abilities.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Flying Kick</span>
+                        <span class="skill-desc">Leap to a target and deliver a powerful kick, knocking them back.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Healing Sphere</span>
+                        <span class="skill-desc">Create a healing orb that restores health when touched (lasts 15 seconds).</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Touch of Death</span>
+                        <span class="skill-desc">After accumulating enough damage, execute a finishing move that instantly kills weaker enemies.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ranged/Caster Classes -->
+            <div class="class-card">
+                <h3>Mage <span class="role-tag caster">DPS</span></h3>
+                <p>Masters of arcane magic who wield devastating elemental spells.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Fireball</span>
+                        <span class="skill-desc">Hurl a fiery projectile that explodes on impact.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Frost Nova</span>
+                        <span class="skill-desc">Freeze all nearby enemies in place for 5 seconds.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Polymorph</span>
+                        <span class="skill-desc">Turn an enemy into a harmless sheep for 15 seconds (damage breaks effect).</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <h3>Ranger <span class="role-tag ranged">DPS</span> <span class="role-tag melee">Hybrid</span></h3>
+                <p>Expert marksmen who fight alongside their animal companions.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Aimed Shot</span>
+                        <span class="skill-desc">Powerful ranged attack that deals 300% weapon damage with increased critical chance.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Call Pet</span>
+                        <span class="skill-desc">Summon your animal companion to fight by your side.</span>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Multi-Shot</span>
+                        <span class="skill-desc">Fire arrows at up to 3 enemies simultaneously.</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</body>
-</html>
+</div>
