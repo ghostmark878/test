@@ -1,16 +1,13 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 ---
----
-import Layout from '../layouts/BlogPost.astro';
----
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-S Minecraft MMO | Nieuserver.online</title>
+    <title>Hunter's Squire MMO | Nieuserver.online</title>
     <style>
         /* Consistent styling with other pages */
         * {
@@ -45,7 +42,7 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid #d35400; /* MMO orange accent */
+            border-bottom: 4px solid #d35400;
         }
         
         .dev-banner {
@@ -75,6 +72,14 @@ import Layout from '../layouts/BlogPost.astro';
             font-size: 1.8rem;
             border-bottom: 2px solid #d35400;
             padding-bottom: 8px;
+        }
+        
+        .dev-note {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
         }
         
         .feature-grid {
@@ -107,40 +112,6 @@ import Layout from '../layouts/BlogPost.astro';
             border: 1px solid #d35400;
         }
         
-        .timeline {
-            position: relative;
-            margin: 40px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #d35400;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-date {
-            color: #ff9800;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-content {
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-        
         /* Special MMO elements */
         .class-card {
             background: #2a2a2a;
@@ -148,11 +119,24 @@ import Layout from '../layouts/BlogPost.astro';
             border-radius: 8px;
             margin: 20px 0;
             border: 1px solid #d35400;
+            position: relative;
         }
         
         .class-card h3 {
             color: #d35400;
             margin-bottom: 10px;
+        }
+        
+        .class-experimental {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff9800;
+            color: #2a2a2a;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
         
         .skill-tree {
@@ -175,153 +159,169 @@ import Layout from '../layouts/BlogPost.astro';
 </head>
 <body>
     <div class="dev-banner">
-        🚧 H-S MMO RPG in Active Development - Pre-Alpha Stage 🚧
+        🚧 EXPERIMENTAL BUILD - All features subject to change 🚧
     </div>
     
     <header>
-        <h1>H-S Minecraft MMO RPG</h1>
-        <p>A custom-built MMORPG experience within Minecraft</p>
+        <h1>HUNTER'S SQUIRE</h1>
+        <p>A radically experimental MMORPG framework in development</p>
+        <p><em>Nothing shown here is final - everything may change during development</em></p>
     </header>
     
     <div class="container">
         <div class="card">
-            <h2>Core Vision</h2>
-            <p>H-S MMO is a complete reimagining of Minecraft as a true MMORPG, featuring:</p>
+            <h2>Core Vision (Subject to Change)</h2>
+            <div class="dev-note">
+                This entire project is in flux. The features below represent our current direction, 
+                but may be altered, removed, or replaced as development progresses.
+            </div>
             <div class="feature-grid">
                 <div class="feature-card">
                     <h3>Persistent World</h3>
-                    <p>A massive, hand-crafted world with distinct regions, dungeons, and hidden secrets.</p>
+                    <p>Massive procedurally-assisted world with distinct biomes and dungeons.</p>
+                    <p><em>Note: World generation parameters may change significantly</em></p>
                 </div>
                 <div class="feature-card">
-                    <h3>Class System</h3>
-                    <p>8 unique classes with skill trees and specialized abilities.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Quest System</h3>
-                    <p>Over 200 planned quests with branching storylines and meaningful rewards.</p>
+                    <h3>Experimental Class System</h3>
+                    <p>8 prototype classes undergoing constant iteration.</p>
+                    <p><em>Class mechanics may be completely reworked</em></p>
                 </div>
             </div>
         </div>
         
         <div class="card">
-            <h2>Technical Implementation</h2>
-            <p>Built using these core technologies:</p>
-            <div style="margin: 20px 0;">
-                <span class="tech-pill">Custom Java Plugin</span>
-                <span class="tech-pill">MySQL Database</span>
-                <span class="tech-pill">WorldEdit</span>
-                <span class="tech-pill">Custom Resource Pack</span>
-                <span class="tech-pill">BossBar API</span>
-                <span class="tech-pill">Packet Manipulation</span>
+            <h2>Experimental Class Prototypes</h2>
+            <div class="dev-note">
+                These classes are in active development. Names, abilities, and core mechanics 
+                may change or be removed entirely before release.
             </div>
-            <p>The MMO will run on dedicated hardware separate from our main survival server.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Class System</h2>
-            <p>Choose from these specialized roles:</p>
             
             <div class="class-card">
-                <h3>Warrior</h3>
-                <p>Tank specialization with heavy armor and defensive abilities.</p>
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Reaver</h3>
+                <p>Dual-wielding berserker that gains power from taking damage</p>
                 <div class="skill-tree">
                     <div class="skill">
-                        <span class="skill-name">Shield Wall</span>: Reduce incoming damage by 50% for 5 seconds.
+                        <span class="skill-name">Blood Price</span>: Convert health to attack speed (15s duration)
                     </div>
                     <div class="skill">
-                        <span class="skill-name">Taunt</span>: Force enemies to attack you for 8 seconds.
+                        <span class="skill-name">Pain Conversion</span>: 30% of damage taken is returned as healing (5s)
                     </div>
                 </div>
             </div>
             
             <div class="class-card">
-                <h3>Arcane Archer</h3>
-                <p>Ranged DPS with elemental arrows and mobility.</p>
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Spellblade</h3>
+                <p>Melee/magic hybrid with elemental weapon infusion</p>
                 <div class="skill-tree">
                     <div class="skill">
-                        <span class="skill-name">Frost Arrow</span>: Slow enemies by 30% for 4 seconds.
+                        <span class="skill-name">Arcane Edge</span>: Next 3 attacks deal bonus magic damage
                     </div>
                     <div class="skill">
-                        <span class="skill-name">Volley</span>: Fire 5 arrows in a cone.
+                        <span class="skill-name">Elemental Shift</span>: Cycle between fire/frost/lightning imbues
                     </div>
                 </div>
             </div>
             
-            <!-- Additional classes would go here -->
-        </div>
-        
-        <div class="card">
-            <h2>Progression Systems</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Leveling</h3>
-                    <p>100 levels with increasing XP requirements. Gain stat points each level.</p>
+            <div class="class-card">
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Warden</h3>
+                <p>Nature-themed tank with area control abilities</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Bramble Wall</span>: Create impassable vegetation barrier (8s)
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Photosynthesis</span>: Heal while standing in sunlight
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>Gear Score</h3>
-                    <p>Items have tiered rarity (Common to Legendary) with random attributes.</p>
+            </div>
+            
+            <div class="class-card">
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Artificer</h3>
+                <p>Gadget-based combat with deployable devices</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Tesla Coil</span>: Deploy shocking area denial device
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Rocket Boots</span>: Short explosive dash (3 charges)
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>Reputation</h3>
-                    <p>Earn faction reputation for unique rewards and quests.</p>
+            </div>
+            
+            <div class="class-card">
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Necrotic Scholar</h3>
+                <p>Debuff-focused caster with undead minions</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Soul Siphon</span>: Steal health over time from weakened enemies
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Raise Husk</span>: Summon temporary undead ally from corpses
+                    </div>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Wind Dancer</h3>
+                <p>Mobile skirmisher with aerial maneuvers</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Gale Step</span>: Triple jump with attack buff on landing
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Zephyr Strike</span>: Dash through enemies with wind blades
+                    </div>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Rune Knight</h3>
+                <p>Defensive warrior with magical sigils</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Warding Glyph</span>: Create damage-absorbing magic circle
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Sigil Chain</span>: Link allies to share 20% of damage taken
+                    </div>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <span class="class-experimental">EXPERIMENTAL</span>
+                <h3>Shadow Weave</h3>
+                <p>Stealth-based trickster with illusion magic</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Phantom Decoy</span>: Create distracting clone that explodes
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Umbral Step</span>: Brief invulnerability while teleporting
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="card">
-            <h2>Quest System Details</h2>
-            <ul>
-                <li><strong>Main Storyline</strong>: 50+ quest epic narrative with cutscenes</li>
-                <li><strong>Side Quests</strong>: Optional stories with unique rewards</li>
-                <li><strong>Daily Quests</strong>: Repeatable objectives for consistent progression</li>
-                <li><strong>Dungeon Quests</strong>: Multi-stage instanced content</li>
-            </ul>
-            <div style="margin-top: 20px; background: #2a2a2a; padding: 15px; border-radius: 6px; border-left: 4px solid #d35400;">
-                <h3>Example Quest: "The Lost Artifact"</h3>
-                <p><strong>Level Requirement</strong>: 25+</p>
-                <p><strong>Objectives</strong>:
-                    <ol>
-                        <li>Speak to Archmage Velyn in Stormspire</li>
-                        <li>Recover the Ancient Tome from Duskwood Catacombs</li>
-                        <li>Defeat the Lich guarding the artifact</li>
-                    </ol>
-                </p>
-                <p><strong>Rewards</strong>: 1500 XP, +50 Stormspire Reputation, Tome of Arcane Knowledge (accessory)</p>
+            <h2>Important Development Notes</h2>
+            <div class="dev-note">
+                <p><strong>This is not a promise of features</strong> - Hunter's Squire is in active experimentation phase.</p>
+                <p>We may:</p>
+                <ul>
+                    <li>Completely redesign or remove classes</li>
+                    <li>Change core progression systems</li>
+                    <li>Alter or scrap planned features</li>
+                    <li>Rebalance everything multiple times</li>
+                </ul>
+                <p>Check our development blog for the latest updates on what's changed.</p>
             </div>
-        </div>
-        
-        <div class="card">
-            <h2>Development Timeline</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Q1 2025</div>
-                    <div class="timeline-content">
-                        <p>Core plugin architecture completed</p>
-                        <p>First region (Stormspire Valley) terrain generation</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Q2 2025</div>
-                    <div class="timeline-content">
-                        <p>Class system implementation (4/8 classes)</p>
-                        <p>First 30 quests scripted</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Q3 2025</div>
-                    <div class="timeline-content">
-                        <p>Closed alpha testing begins</p>
-                        <p>Dungeon system implementation</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Join the Development</h2>
-            <p>Interested in testing or contributing?</p>
-            <a href="/contact" class="btn" style="background: #d35400; display: inline-block; padding: 10px 25px; border-radius: 5px; color: white; text-decoration: none;">Contact Us</a>
-            <p style="margin-top: 20px;">Follow our development blog for weekly updates.</p>
         </div>
     </div>
 </body>
