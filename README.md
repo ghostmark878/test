@@ -1,4 +1,5 @@
 # Nieuserver - Game Server Hosting Portal
+repo not up to date and is inaccurate - dont pay attention to it 
 
 [![Website](https://img.shields.io/badge/Visit-nieuserver.online-blue?style=for-the-badge&logo=internet-explorer)](https://nieuserver.online)
 ![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/nieuserver?style=for-the-badge)
