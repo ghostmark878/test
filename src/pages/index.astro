@@ -10,448 +10,280 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official website for Nieu Minecraft Server - Join us at play.nieuserver.online">
-    <meta name="keywords" content="minecraft, server, survival, multiplayer, nieu, modded, vanilla">
-    <title>Nieu Minecraft Server | play.nieuserver.online</title>
-    <link rel="icon" href="https://via.placeholder.com/32" type="image/x-icon">
+    <title>Nieuserver.online - Minecraft & Terraria Server Hub</title>
     <style>
-        :root {
-            --primary: #4CAF50;
-            --secondary: #2196F3;
-            --offline: #f44336;
-            --bg-light: rgba(255, 255, 255, 0.9);
-            --bg-lighter: rgba(255, 255, 255, 0.7);
-            --text-dark: #333;
-            --text-light: white;
-            --content-bg: #add8e6;
-            --transition-speed: 0.3s;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        body, html {
-            font-family: 'Arial', sans-serif;
-            color: var(--text-dark);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            background: var(--content-bg);
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
             line-height: 1.6;
         }
-
-        .hero {
-            height: 100vh;
-            background: url('background.png') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .content {
-            padding: 2rem 1rem;
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
-
-        .server-ip-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1.5rem 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            margin: 0 1rem;
-            transition: transform var(--transition-speed) ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .server-ip-container:hover {
-            transform: translateY(-5px);
-        }
-
-        .server-ip {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            margin: 0;
-            word-break: break-all;
-        }
-
-        .btn {
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            margin: 0.5rem 0.3rem;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all var(--transition-speed) ease;
+            padding: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header .domain {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
             display: inline-block;
+            padding: 12px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
-
-        .btn-primary {
-            background: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background: #3e8e41;
+        
+        .btn:hover {
+            background: #45a049;
             transform: translateY(-2px);
         }
-
-        .btn-secondary {
-            background: var(--secondary);
-        }
-
-        .btn-secondary:hover {
-            background: #0b7dda;
-        }
-
-        .card {
-            background: var(--bg-light);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 1.5rem auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-        }
-
-        .status-indicator {
+        
+        .server-cards {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px 0;
         }
-
-        .status-online {
-            color: var(--primary);
-        }
-
-        .status-offline {
-            color: var(--offline);
-        }
-
-        .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .server-info {
-            background: var(--bg-lighter);
-            padding: 1rem;
+        
+        .card {
+            background: white;
             border-radius: 8px;
-            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            min-width: 300px;
+            margin: 20px 0;
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
-
-        h1 {
-            color: var(--primary);
-            margin-bottom: 1rem;
+        
+        .card:hover {
+            transform: translateY(-10px);
         }
-
-        h2 {
-            color: #2E7D32;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin: 1.5rem 0 1rem;
+        
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
         }
-
-        .social-links {
+        
+        .minecraft-img {
+            background-image: url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .terraria-img {
+            background-image: url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h2 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .card-content p {
+            margin-bottom: 20px;
+            color: #7f8c8d;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        footer .domain {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 15px 0;
+        }
+        
+        nav ul {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            list-style: none;
         }
-
-        .player-list {
-            margin-top: 1rem;
-            display: none;
+        
+        nav ul li {
+            margin: 0 20px;
         }
-
-        .player-avatars {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .player-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .player-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        ul, ol {
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .coming-soon {
-            color: #FF9800;
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
-
-        @media (max-width: 600px) {
-            .server-ip-container {
-                padding: 1rem;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                margin: 0.3rem 0;
-            }
+        
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+        
+        .status {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .server-stats {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        
+        .server-stats h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="server-ip-container">
-            <p class="server-ip" id="server-ip">play.nieuserver.online</p>
-            <button onclick="copyIP()" class="btn btn-primary">Copy IP</button>
-            <button onclick="joinServer()" class="btn btn-secondary">Join Server</button>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="card" id="server-status-card">
-            <div class="status-container">
-                <div class="status-indicator">
-                    <span id="status-text">Checking server status...</span>
-                    <span id="status-dot" class="status-offline">●</span>
-                    <div id="loading-spinner" class="loading-spinner"></div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/minecraft">Minecraft Server</a></li>
+            <li><a href="/terraria">Terraria Server</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Welcome to Nieuserver</h1>
+        <div class="domain">nieuserver.online</div>
+        <p>Your premium destination for high-quality Minecraft and Terraria gaming servers. Join our community today!</p>
+        <a href="#servers" class="btn">Explore Servers</a>
+    </header>
+    
+    <div class="container">
+        <section class="server-stats">
+            <h2>Server Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">24/7</div>
+                    <div class="label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">50+</div>
+                    <div class="label">Active Players</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">2</div>
+                    <div class="label">Game Servers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">99%</div>
+                    <div class="label">Satisfaction</div>
                 </div>
             </div>
-            <div id="server-details" class="server-info">
-                <p>Players: <span id="player-count">-</span>/<span id="max-players">-</span></p>
-                <p>Version: <span id="server-version">-</span></p>
-                <p>Description: <span id="server-description">Loading...</span></p>
-                <div id="player-list" class="player-list">
-                    <h3>Online Players:</h3>
-                    <div id="player-avatars" class="player-avatars"></div>
-                </div>
-                <p>Last Updated: <span id="last-updated">Never</span></p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h1>Welcome to Nieu Minecraft Server</h1>
-            <p>Join our friendly community at <strong>play.nieuserver.online</strong> for an amazing Minecraft experience!</p>
-            
-            <h2>Server Features</h2>
-            <ul>
-                <li><strong>Vanilla Survival</strong> - Pure Minecraft experience with quality-of-life improvements</li>
-                <li><strong>Modded Gameplay</strong> - Optional modpacks with enhanced features</li>
-                <li><strong>Custom Gamemode</strong> - <span class="coming-soon">Coming Soon:</span> Unique gameplay mode in development</li>
-               
-            </ul>
-            
-            <h2>Server Rules</h2>
-            <ol>
-                <li><strong>Be Respectful</strong> - No harassment, hate speech, or discrimination</li>
-                <li><strong>No Griefing</strong> - Don't destroy others' builds without permission</li>
-                <li><strong>No Cheating</strong> - Hack clients, x-ray, or unfair advantages are banned</li>
-                <li><strong>Keep Chat Clean</strong> - No spamming, advertising, or excessive swearing</li>
-                <li><strong>Respect Staff</strong> - Their decisions are final</li>
-                <li><strong>No Lag Machines</strong> - Don't create excessive server load</li>
-                <li><strong>Have Fun!</strong> - This is a game, enjoy it!</li>
-            </ol>
-
-            <div class="social-links">
-                <a href="https://discord.gg/example" class="btn btn-secondary" target="_blank">Join our Discord</a>
-                <a href="https://twitter.com/example" class="btn btn-secondary" target="_blank">Follow on Twitter</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Configuration
-        const SERVER_IP = 'play.nieuserver.online';
-        const API_ENDPOINTS = [
-            `https://api.minetools.eu/ping/${SERVER_IP}`,
-            `https://api.mcsrvstat.us/2/${SERVER_IP}`
-        ];
+        </section>
         
-        let lastUpdated = null;
-        let cachedData = null;
-
-        // DOM Elements
-        const elements = {
-            statusText: document.getElementById('status-text'),
-            statusDot: document.getElementById('status-dot'),
-            loadingSpinner: document.getElementById('loading-spinner'),
-            playerCount: document.getElementById('player-count'),
-            maxPlayers: document.getElementById('max-players'),
-            serverVersion: document.getElementById('server-version'),
-            serverDescription: document.getElementById('server-description'),
-            playerList: document.getElementById('player-list'),
-            playerAvatars: document.getElementById('player-avatars'),
-            lastUpdated: document.getElementById('last-updated'),
-            serverStatusCard: document.getElementById('server-status-card')
-        };
-
-        // Utility Functions
-        const formatTime = (date) => date.toLocaleString();
-
-        const copyIP = () => {
-            navigator.clipboard.writeText(SERVER_IP)
-                .then(() => {
-                    const btn = document.querySelector('.btn-primary');
-                    const originalText = btn.textContent;
-                    btn.textContent = 'Copied!';
-                    setTimeout(() => btn.textContent = originalText, 2000);
-                })
-                .catch(err => console.error('Failed to copy IP:', err));
-        };
-
-        const joinServer = () => {
-            window.location.href = `minecraft://?addExternalServer=Nieu|${SERVER_IP}`;
-            setTimeout(() => {
-                window.location.href = 'https://minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc';
-            }, 250);
-        };
-
-        const createPlayerAvatar = (player) => {
-            const avatar = document.createElement('div');
-            avatar.className = 'player-avatar';
-            avatar.title = player.name;
+        <section id="servers" class="server-cards">
+            <div class="card">
+                <div class="card-img minecraft-img"></div>
+                <div class="card-content">
+                    <h2>Minecraft Server</h2>
+                    <p>Join our vibrant Minecraft community with custom mods, survival worlds, and minigames. Perfect for both casual and hardcore players.</p>
+                    <a href="/minecraft" class="btn">Server Details</a>
+                </div>
+            </div>
             
-            const img = document.createElement('img');
-            img.src = `https://mc-heads.net/avatar/${player.id || player.name}/40`;
-            img.alt = `${player.name}'s avatar`;
-            
-            avatar.appendChild(img);
-            return avatar;
-        };
-
-        const showErrorState = () => {
-            elements.statusText.textContent = 'Server Offline';
-            elements.statusDot.className = 'status-offline';
-            elements.playerCount.textContent = '0';
-            elements.maxPlayers.textContent = '0';
-            elements.serverVersion.textContent = '-';
-            elements.serverDescription.textContent = 'Could not connect to server';
-            elements.playerList.style.display = 'none';
-            elements.serverStatusCard.classList.add('status-offline-bg');
-        };
-
-        const displayServerData = (data) => {
-            // Update basic info
-            elements.statusText.textContent = 'Server Online';
-            elements.statusDot.className = 'status-online';
-            elements.playerCount.textContent = data.players?.online || 0;
-            elements.maxPlayers.textContent = data.players?.max || 0;
-            elements.serverVersion.textContent = data.version?.name || '-';
-            
-            // Handle description
-            if (typeof data.description === 'string') {
-                elements.serverDescription.textContent = data.description;
-            } else if (data.description?.text) {
-                elements.serverDescription.textContent = data.description.text;
-            } else if (Array.isArray(data.description?.extra)) {
-                elements.serverDescription.textContent = data.description.extra.map(item => item.text).join('');
-            } else {
-                elements.serverDescription.textContent = 'A Minecraft Server';
-            }
-
-            // Handle player list
-            elements.playerAvatars.innerHTML = '';
-            if (data.players?.sample?.length > 0) {
-                data.players.sample.forEach(player => {
-                    elements.playerAvatars.appendChild(createPlayerAvatar(player));
-                });
-                elements.playerList.style.display = 'block';
-            } else {
-                elements.playerList.style.display = 'none';
-            }
-        };
-
-        const checkServerStatus = async () => {
-            elements.loadingSpinner.style.display = 'inline-block';
-            elements.statusText.textContent = 'Checking server...';
-            
-            try {
-                // Try cached data first (5 minute cache)
-                if (cachedData && lastUpdated && (Date.now() - lastUpdated.getTime() < 300000)) {
-                    displayServerData(cachedData);
-                    return;
-                }
-
-                // Try multiple API endpoints
-                for (const endpoint of API_ENDPOINTS) {
-                    try {
-                        const response = await fetch(endpoint);
-                        if (!response.ok) continue;
-                        
-                        const data = await response.json();
-                        cachedData = data;
-                        lastUpdated = new Date();
-                        displayServerData(data);
-                        return;
-                    } catch (e) {
-                        console.log(`Failed with ${endpoint}, trying next...`);
-                    }
-                }
-                
-                throw new Error('All API endpoints failed');
-                
-            } catch (error) {
-                console.error('Error fetching server status:', error);
-                showErrorState();
-            } finally {
-                elements.loadingSpinner.style.display = 'none';
-                elements.lastUpdated.textContent = formatTime(new Date());
-            }
-        };
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            checkServerStatus();
-            setInterval(checkServerStatus, 60000);
-
-            document.addEventListener('visibilitychange', () => {
-                if (!document.hidden) checkServerStatus();
-            });
-
-            // Mobile touch improvements
-            document.querySelectorAll('.btn').forEach(btn => {
-                btn.addEventListener('touchstart', () => btn.style.transform = 'scale(0.98)');
-                btn.addEventListener('touchend', () => btn.style.transform = '');
-            });
-        });
-    </script>
+            <div class="card">
+                <div class="card-img terraria-img"></div>
+                <div class="card-content">
+                    <h2>Terraria Server</h2>
+                    <p>Explore our Terraria world with enhanced gameplay, regular events, and a friendly community. Adventure awaits!</p>
+                    <a href="/terraria" class="btn">Server Details</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="status">
+            <h2>Server Status</h2>
+            <p>All servers are currently online and operational.</p>
+            <!-- You can add actual server status indicators here later -->
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 <span class="domain">nieuserver.online</span> - All Rights Reserved</p>
+        <p>Connect with us on Discord and other social platforms!</p>
+    </footer>
 </body>
 </html>
