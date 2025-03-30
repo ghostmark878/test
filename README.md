@@ -1,60 +1,53 @@
-# Astro Starter Kit: Blog
+# Nieuserver - Game Server Hosting Portal
+repo not up to date and is inaccurate - dont pay attention to it 
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+[![Website](https://img.shields.io/badge/Visit-nieuserver.online-blue?style=for-the-badge&logo=internet-explorer)](https://nieuserver.online)
+![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/nieuserver?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-<!-- dash-content-start -->
+![Nieuserver Banner](assets/images/banner.png) <!-- Replace with your actual banner path -->
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+Official website for Nieuserver's game hosting services, featuring Minecraft and Terraria servers.
 
-Features:
+## 🌐 Live Demo
+[https://nieuserver.online](https://nieuserver.online)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## 🎮 Server Status
+| Server      | Status | Version | IP Address |
+|-------------|--------|---------|------------|
+| Minecraft   | ![Online](https://img.shields.io/badge/Online-00ff00?style=flat-square) | 1.20.1 | `play.nieuserver.online` |
+| Terraria    | ![Online](https://img.shields.io/badge/Online-00ff00?style=flat-square) | 1.4.4 | `terraria.nieuserver.online` |
 
-<!-- dash-content-end -->
+## 🚀 Features
+- Real-time server status monitoring
+- One-click IP copy functionality
+- Responsive design (desktop & mobile)
+- Server rules and documentation
+- Player statistics display
+- Maintenance announcements
 
-## Getting Started
+## 🛠️ Tech Stack
+**Core:**
+- Astro (Static Site Generator)
+- HTML5 / CSS3 / JavaScript
+- Tailwind CSS
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+**Integrations:**
+- Minecraft Server Query API
+- Terraria Status Checker
+- Discord Webhook (for notifications)
 
+## 📂 Project Structure
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/test
-```
-
-A live public deployment of this template is available at [https://test.templates.workers.dev](https://test.templates.workers.dev)
-
-## 🚀 Project Structure
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run deploy`          | Deploy your production site to Cloudflare        |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+src/
+├── components/       # Reusable UI components
+│   ├── ServerCard.astro
+│   ├── StatusBadge.astro
+│   └── Navbar.astro
+├── layouts/          # Page layouts
+├── pages/           # Website routes
+│   ├── index.astro   # Homepage
+│   ├── rules.astro
+│   └── contact.astro
+├── styles/           # Global styles
+└── scripts/          # JS utilities
