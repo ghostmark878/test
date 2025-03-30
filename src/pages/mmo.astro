@@ -1,167 +1,502 @@
-<div class="container">
-    <div class="card">
-        <h2>Classic Fantasy Classes</h2>
-        <div class="dev-note">
-            These are our planned classes for the initial release. Class mechanics, skills, 
-            and roles may change during development based on testing and feedback.
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the 8 classic fantasy classes of Hunter's Squire MMO - from holy paladins to stealthy rogues and powerful mages.">
+    <title>Hunter's Squire Classes | Nieuserver.online</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --accent-orange: #ff8c42;
+            --accent-dark-orange: #d35400;
+            --tank-blue: #3498db;
+            --healer-green: #2ecc71;
+            --melee-red: #e74c3c;
+            --ranged-orange: #f39c12;
+            --caster-purple: #9b59b6;
+            --support-yellow: #f1c40f;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            border-bottom: 4px solid var(--accent-dark-orange);
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .dev-banner {
+            background: linear-gradient(90deg, var(--ranged-orange), var(--accent-orange));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        nav {
+            background: #1a1a1a;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--accent-dark-orange);
+            position: sticky;
+            top: 44px;
+            z-index: 99;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-orange);
+            background: rgba(211, 84, 0, 0.1);
+        }
+        
+        .active {
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--accent-orange);
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid var(--accent-dark-orange);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card h2 {
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-dark-orange);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .dev-note {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid var(--ranged-orange);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .class-card {
+            background: #333333;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--accent-dark-orange);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-orange);
+        }
+        
+        .class-card h3 {
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .role-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .tank { background: var(--tank-blue); }
+        .healer { background: var(--healer-green); }
+        .melee { background: var(--melee-red); }
+        .ranged { background: var(--ranged-orange); }
+        .caster { background: var(--caster-purple); }
+        .support { background: var(--support-yellow); color: #333; }
+        
+        .skill-tree {
+            margin-top: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            flex-grow: 1;
+        }
+        
+        .skill {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #444;
+        }
+        
+        .skill:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .skill-name {
+            color: var(--accent-orange);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .skill-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                height: 300px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dev-banner">
+        EXPERIMENTAL PREVIEW - All features subject to change 
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/minecraft">Minecraft</a></li>
+            <li><a href="/terraria">Terraria</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>HUNTER'S SQUIRE</h1>
+        <p>A classic fantasy MMORPG experience in development</p>
+        <p><em>Currently in prototype phase - nothing is final</em></p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Classic Fantasy Classes</h2>
+            <div class="dev-note">
+                These are our planned classes for the initial release. Class mechanics, skills, 
+                and roles may change during development based on testing and feedback.
+            </div>
+            
+            <div class="class-grid">
+                <!-- Paladin -->
+                <div class="class-card">
+                    <h3>Paladin 
+                        <span class="role-tag tank">Tank</span>
+                        <span class="role-tag support">Support</span>
+                    </h3>
+                    <p>Holy warriors who protect allies with divine magic and heavy armor. Wields sword and shield.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Divine Aegis</span>
+                            <span class="skill-desc">Create a protective aura that reduces damage taken by allies by 25% for 8 seconds.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Hammer of Justice</span>
+                            <span class="skill-desc">Stun an enemy and generate high threat (4 second stun).</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Lay on Hands</span>
+                            <span class="skill-desc">Instantly heal a target for 50% of their maximum health (3 min cooldown).</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warrior -->
+                <div class="class-card">
+                    <h3>Warrior 
+                        <span class="role-tag tank">Tank</span>
+                        <span class="role-tag melee">DPS</span>
+                    </h3>
+                    <p>Masters of weaponry who rely on heavy armor and pure strength to dominate the battlefield.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Shield Wall</span>
+                            <span class="skill-desc">Reduce all damage taken by 60% for 8 seconds.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Mortal Strike</span>
+                            <span class="skill-desc">A powerful attack that reduces healing received by the target by 50% for 6 seconds.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Charge</span>
+                            <span class="skill-desc">Rush to an enemy, stunning them for 1 second and generating high threat.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cleric -->
+                <div class="class-card">
+                    <h3>Cleric 
+                        <span class="role-tag healer">Healer</span>
+                        <span class="role-tag support">Support</span>
+                    </h3>
+                    <p>Devout healers who channel holy energy to mend wounds and purge ailments.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Sacred Light</span>
+                            <span class="skill-desc">Powerful single-target heal that also removes 1 debuff.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Circle of Renewal</span>
+                            <span class="skill-desc">Create a healing zone that restores health to all allies inside every 2 seconds for 10 seconds.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Divine Intervention</span>
+                            <span class="skill-desc">Make a target immune to all damage for 10 seconds, but they cannot act (30 min cooldown).</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Druid -->
+                <div class="class-card">
+                    <h3>Druid 
+                        <span class="role-tag healer">Healer</span>
+                        <span class="role-tag ranged">DPS</span>
+                    </h3>
+                    <p>Versatile nature guardians who can shapeshift and harness the power of the wilds.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Rejuvenation</span>
+                            <span class="skill-desc">Heal a target over 12 seconds.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Bear Form</span>
+                            <span class="skill-desc">Transform into a bear, increasing armor by 200% and health by 25%.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Moonfire</span>
+                            <span class="skill-desc">Instant spell that damages the target and then burns them for additional damage over 12 seconds.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rogue -->
+                <div class="class-card">
+                    <h3>Rogue 
+                        <span class="role-tag melee">DPS</span>
+                    </h3>
+                    <p>Stealthy assassins who specialize in quick strikes and deadly poisons.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Stealth</span>
+                            <span class="skill-desc">Become nearly invisible until you attack or take damage.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Backstab</span>
+                            <span class="skill-desc">Deal 250% weapon damage to a target when behind them.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Evasion</span>
+                            <span class="skill-desc">Dodge all melee attacks for 10 seconds.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Monk -->
+                <div class="class-card">
+                    <h3>Monk 
+                        <span class="role-tag melee">DPS</span>
+                        <span class="role-tag support">Support</span>
+                    </h3>
+                    <p>Martial artists who combine quick strikes with mystical abilities.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Flying Kick</span>
+                            <span class="skill-desc">Leap to a target and deliver a powerful kick, knocking them back.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Healing Sphere</span>
+                            <span class="skill-desc">Create a healing orb that restores health when touched (lasts 15 seconds).</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Touch of Death</span>
+                            <span class="skill-desc">After accumulating enough damage, execute a finishing move that instantly kills weaker enemies.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mage -->
+                <div class="class-card">
+                    <h3>Mage 
+                        <span class="role-tag caster">DPS</span>
+                    </h3>
+                    <p>Masters of arcane magic who wield devastating elemental spells.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Fireball</span>
+                            <span class="skill-desc">Hurl a fiery projectile that explodes on impact.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Frost Nova</span>
+                            <span class="skill-desc">Freeze all nearby enemies in place for 5 seconds.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Polymorph</span>
+                            <span class="skill-desc">Turn an enemy into a harmless sheep for 15 seconds (damage breaks effect).</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ranger -->
+                <div class="class-card">
+                    <h3>Ranger 
+                        <span class="role-tag ranged">DPS</span>
+                        <span class="role-tag melee">Hybrid</span>
+                    </h3>
+                    <p>Expert marksmen who fight alongside their animal companions.</p>
+                    <div class="skill-tree">
+                        <div class="skill">
+                            <span class="skill-name">Aimed Shot</span>
+                            <span class="skill-desc">Powerful ranged attack that deals 300% weapon damage with increased critical chance.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Call Pet</span>
+                            <span class="skill-desc">Summon your animal companion to fight by your side.</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Multi-Shot</span>
+                            <span class="skill-desc">Fire arrows at up to 3 enemies simultaneously.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <div class="class-grid">
-            <!-- Tank Classes -->
-            <div class="class-card">
-                <h3>Paladin <span class="role-tag tank">Tank</span> <span class="role-tag healer">Support</span></h3>
-                <p>Holy warriors who protect allies with divine magic and heavy armor. Wields sword and shield.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Divine Aegis</span>
-                        <span class="skill-desc">Create a protective aura that reduces damage taken by allies by 25% for 8 seconds.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Hammer of Justice</span>
-                        <span class="skill-desc">Stun an enemy and generate high threat (4 second stun).</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Lay on Hands</span>
-                        <span class="skill-desc">Instantly heal a target for 50% of their maximum health (3 min cooldown).</span>
-                    </div>
-                </div>
+        <div class="card">
+            <h2>Development Status</h2>
+            <div class="dev-note">
+                <strong>Important:</strong> This project is in early development. All features shown here are prototypes 
+                and may change significantly before release. Class balance, skills, and even core mechanics 
+                are subject to complete revision based on testing.
             </div>
-            
-            <div class="class-card">
-                <h3>Warrior <span class="role-tag tank">Tank</span> <span class="role-tag melee">DPS</span></h3>
-                <p>Masters of weaponry who rely on heavy armor and pure strength to dominate the battlefield.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Shield Wall</span>
-                        <span class="skill-desc">Reduce all damage taken by 60% for 8 seconds.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Mortal Strike</span>
-                        <span class="skill-desc">A powerful attack that reduces healing received by the target by 50% for 6 seconds.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Charge</span>
-                        <span class="skill-desc">Rush to an enemy, stunning them for 1 second and generating high threat.</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Healer Classes -->
-            <div class="class-card">
-                <h3>Cleric <span class="role-tag healer">Healer</span> <span class="role-tag caster">Support</span></h3>
-                <p>Devout healers who channel holy energy to mend wounds and purge ailments.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Sacred Light</span>
-                        <span class="skill-desc">Powerful single-target heal that also removes 1 debuff.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Circle of Renewal</span>
-                        <span class="skill-desc">Create a healing zone that restores health to all allies inside every 2 seconds for 10 seconds.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Divine Intervention</span>
-                        <span class="skill-desc">Make a target immune to all damage for 10 seconds, but they cannot act (30 min cooldown).</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="class-card">
-                <h3>Druid <span class="role-tag healer">Healer</span> <span class="role-tag ranged">DPS</span></h3>
-                <p>Versatile nature guardians who can shapeshift and harness the power of the wilds.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Rejuvenation</span>
-                        <span class="skill-desc">Heal a target over 12 seconds.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Bear Form</span>
-                        <span class="skill-desc">Transform into a bear, increasing armor by 200% and health by 25%.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Moonfire</span>
-                        <span class="skill-desc">Instant spell that damages the target and then burns them for additional damage over 12 seconds.</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Melee DPS Classes -->
-            <div class="class-card">
-                <h3>Rogue <span class="role-tag melee">DPS</span></h3>
-                <p>Stealthy assassins who specialize in quick strikes and deadly poisons.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Stealth</span>
-                        <span class="skill-desc">Become nearly invisible until you attack or take damage.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Backstab</span>
-                        <span class="skill-desc">Deal 250% weapon damage to a target when behind them.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Evasion</span>
-                        <span class="skill-desc">Dodge all melee attacks for 10 seconds.</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="class-card">
-                <h3>Monk <span class="role-tag melee">DPS</span> <span class="role-tag healer">Support</span></h3>
-                <p>Martial artists who combine quick strikes with mystical abilities.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Flying Kick</span>
-                        <span class="skill-desc">Leap to a target and deliver a powerful kick, knocking them back.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Healing Sphere</span>
-                        <span class="skill-desc">Create a healing orb that restores health when touched (lasts 15 seconds).</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Touch of Death</span>
-                        <span class="skill-desc">After accumulating enough damage, execute a finishing move that instantly kills weaker enemies.</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Ranged/Caster Classes -->
-            <div class="class-card">
-                <h3>Mage <span class="role-tag caster">DPS</span></h3>
-                <p>Masters of arcane magic who wield devastating elemental spells.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Fireball</span>
-                        <span class="skill-desc">Hurl a fiery projectile that explodes on impact.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Frost Nova</span>
-                        <span class="skill-desc">Freeze all nearby enemies in place for 5 seconds.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Polymorph</span>
-                        <span class="skill-desc">Turn an enemy into a harmless sheep for 15 seconds (damage breaks effect).</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="class-card">
-                <h3>Ranger <span class="role-tag ranged">DPS</span> <span class="role-tag melee">Hybrid</span></h3>
-                <p>Expert marksmen who fight alongside their animal companions.</p>
-                <div class="skill-tree">
-                    <div class="skill">
-                        <span class="skill-name">Aimed Shot</span>
-                        <span class="skill-desc">Powerful ranged attack that deals 300% weapon damage with increased critical chance.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Call Pet</span>
-                        <span class="skill-desc">Summon your animal companion to fight by your side.</span>
-                    </div>
-                    <div class="skill">
-                        <span class="skill-name">Multi-Shot</span>
-                        <span class="skill-desc">Fire arrows at up to 3 enemies simultaneously.</span>
-                    </div>
-                </div>
-            </div>
+            <p>Current focus areas:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li style="margin-bottom: 8px;">Core combat system prototyping</li>
+                <li style="margin-bottom: 8px;">Class ability framework</li>
+                <li style="margin-bottom: 8px;">World building tools</li>
+                <li style="margin-bottom: 8px;">Server infrastructure</li>
+            </ul>
         </div>
     </div>
-</div>
+</body>
+</html>
