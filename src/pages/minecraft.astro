@@ -8,6 +8,7 @@ import Layout from '../layouts/BlogPost.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Server | Nieuserver.online</title>
     <style>
+        /* Reused styles from homepage */
         * {
             margin: 0;
             padding: 0;
@@ -32,7 +33,7 @@ import Layout from '../layouts/BlogPost.astro';
                         url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 250px;
+            height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -40,26 +41,42 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 3px solid #2e8b57; /* Minecraft green */
+            border-bottom: 4px solid #2e8b57; /* Minecraft green */
         }
         
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .dev-banner {
+            background: linear-gradient(90deg, #ff6b00, #ff9800);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .card {
             background: #383838;
-            border-radius: 6px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 3px solid #2e8b57;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid #2e8b57;
         }
         
         .card h2 {
             color: #2e8b57;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #2e8b57;
+            padding-bottom: 8px;
         }
         
         .card p {
@@ -72,8 +89,8 @@ import Layout from '../layouts/BlogPost.astro';
             color: #e0e0e0;
             text-align: center;
             padding: 25px 0;
-            margin-top: 50px;
-            border-top: 2px solid #2e8b57;
+            margin-top: 40px;
+            border-top: 3px solid #2e8b57;
         }
         
         nav {
@@ -87,29 +104,32 @@ import Layout from '../layouts/BlogPost.astro';
             justify-content: center;
             flex-wrap: wrap;
             list-style: none;
-            gap: 15px;
+            gap: 20px;
         }
         
         nav ul li a {
             color: #e0e0e0;
             text-decoration: none;
+            font-weight: bold;
             padding: 5px 10px;
             border-radius: 4px;
+            transition: all 0.3s ease;
         }
         
         nav ul li a:hover {
             color: #2e8b57;
+            background: rgba(46, 139, 87, 0.1);
         }
         
         .active {
             color: #2e8b57;
-            font-weight: bold;
+            border-bottom: 2px solid #2e8b57;
         }
         
         .server-info {
             background: #2a2a2a;
-            padding: 15px;
-            border-radius: 4px;
+            padding: 20px;
+            border-radius: 6px;
             margin: 20px 0;
             font-family: monospace;
             border: 1px solid #2e8b57;
@@ -120,18 +140,52 @@ import Layout from '../layouts/BlogPost.astro';
             margin-left: 20px;
         }
         
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #2e8b57;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background: #25734a;
+        }
+        
+        .status-disabled {
+            background: #ff9800;
+            color: #2a2a2a;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             header {
-                height: 200px;
+                height: 250px;
             }
             
             header h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="dev-banner">
+        🚧 Minecraft Server Under Development - Estimated Launch: Q3 2025 🚧
+    </div>
+    
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -144,59 +198,67 @@ import Layout from '../layouts/BlogPost.astro';
     
     <header>
         <h1>Nieuserver Minecraft</h1>
-        <p>A simple survival server with basic plugins</p>
+        <p>Building a better survival experience (Coming Soon)</p>
     </header>
     
     <div class="container">
         <div class="card">
-            <h2>Server Information</h2>
-            <div class="server-info">
-                <p><strong>Address:</strong> minecraft.nieuserver.online</p>
-                <p><strong>Version:</strong> 1.20.4 (Java Edition)</p>
-                <p><strong>Status:</strong> Online (20 player slots)</p>
-                <p><strong>Uptime:</strong> ~95% (restarts daily at 4 AM UTC)</p>
+            <h2>Server Preview</h2>
+            <div class="status-disabled">
+                SERVER OFFLINE - IN DEVELOPMENT
             </div>
-            <p>This is a standard PaperMC survival server with minimal plugins to keep gameplay close to vanilla.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Features</h2>
+            <div class="server-info">
+                <p><strong>Planned Address:</strong> mc.nieuserver.online</p>
+                <p><strong>Target Version:</strong> 1.20.4 (Java Edition)</p>
+                <p><strong>Expected Features:</strong> 50 player slots, Survival mode</p>
+            </div>
+            <p>We're currently configuring the server with these planned features:</p>
             <ul class="rules">
-                <li>Survival mode with land claiming</li>
-                <li>No pay-to-win elements</li>
-                <li>Basic anti-grief protections</li>
-                <li>Dynmap available at: <code>map.nieuserver.online</code></li>
+                <li>Vanilla+ gameplay (minor quality-of-life plugins only)</li>
+                <li>Land claim system to prevent griefing</li>
                 <li>Regular world backups</li>
+                <li>Dynmap integration</li>
+                <li>Basic economy system (optional)</li>
             </ul>
         </div>
         
         <div class="card">
-            <h2>Rules</h2>
+            <h2>Development Progress</h2>
+            <p>Current status of server setup:</p>
+            <ul class="rules">
+                <li>✅ Server hardware ready</li>
+                <li>🟡 Core plugins configured (testing phase)</li>
+                <li>🔴 World generation not finalized</li>
+                <li>🟡 Anti-cheat systems being tested</li>
+                <li>🔴 Backup systems pending</li>
+            </ul>
+            <p>We're prioritizing stability over rushing to launch. Beta testing will be announced on our homepage.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Planned Rules</h2>
+            <p>The final server will enforce these rules:</p>
             <ul class="rules">
                 <li>No griefing or stealing</li>
-                <li>PvP must be consensual</li>
-                <li>No hacked clients</li>
-                <li>Keep chat family-friendly</li>
-                <li>Respect staff decisions</li>
+                <li>PvP requires mutual consent</li>
+                <li>No hacked clients or exploits</li>
+                <li>Keep chat appropriate for all ages</li>
+                <li>Staff decisions are final</li>
             </ul>
-            <p>Breaking rules may result in temporary or permanent bans.</p>
+            <p>Detailed rules will be posted before launch.</p>
         </div>
         
         <div class="card">
-            <h2>How to Join</h2>
-            <ol class="rules">
-                <li>Launch Minecraft Java Edition 1.20.4</li>
-                <li>Click "Multiplayer" then "Add Server"</li>
-                <li>Enter <code>minecraft.nieuserver.online</code> as the address</li>
-                <li>Click "Done" then select the server to join</li>
-            </ol>
-            <p>No whitelist - just connect and play.</p>
+            <h2>Stay Updated</h2>
+            <p>Want to know when we launch?</p>
+            <p>Check back on this page or join our Discord for announcements.</p>
+            <a href="/" class="btn">Return to Homepage</a>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 nieuserver.online</p>
-        <p>Minecraft is a trademark of Mojang Studios</p>
+        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
+        <p>Not affiliated with Mojang or Microsoft</p>
     </footer>
 </body>
 </html>
