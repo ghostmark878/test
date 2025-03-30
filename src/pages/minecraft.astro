@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server | Nieuserver.online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            border-bottom: 3px solid #2e8b57; /* Minecraft green */
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .card {
+            background: #383838;
+            border-radius: 6px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 3px solid #2e8b57;
+        }
+        
+        .card h2 {
+            color: #2e8b57;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+            color: #b0b0b0;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 50px;
+            border-top: 2px solid #2e8b57;
+        }
+        
+        nav {
+            background: #1a1a1a;
+            padding: 12px 0;
+            border-bottom: 2px solid #2e8b57;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 15px;
+        }
+        
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #2e8b57;
+        }
+        
+        .active {
+            color: #2e8b57;
+            font-weight: bold;
+        }
+        
+        .server-info {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-family: monospace;
+            border: 1px solid #2e8b57;
+        }
+        
+        .rules li {
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                height: 200px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/minecraft" class="active">Minecraft</a></li>
+            <li><a href="/terraria">Terraria</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Nieuserver Minecraft</h1>
+        <p>A simple survival server with basic plugins</p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Server Information</h2>
+            <div class="server-info">
+                <p><strong>Address:</strong> minecraft.nieuserver.online</p>
+                <p><strong>Version:</strong> 1.20.4 (Java Edition)</p>
+                <p><strong>Status:</strong> Online (20 player slots)</p>
+                <p><strong>Uptime:</strong> ~95% (restarts daily at 4 AM UTC)</p>
+            </div>
+            <p>This is a standard PaperMC survival server with minimal plugins to keep gameplay close to vanilla.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Features</h2>
+            <ul class="rules">
+                <li>Survival mode with land claiming</li>
+                <li>No pay-to-win elements</li>
+                <li>Basic anti-grief protections</li>
+                <li>Dynmap available at: <code>map.nieuserver.online</code></li>
+                <li>Regular world backups</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Rules</h2>
+            <ul class="rules">
+                <li>No griefing or stealing</li>
+                <li>PvP must be consensual</li>
+                <li>No hacked clients</li>
+                <li>Keep chat family-friendly</li>
+                <li>Respect staff decisions</li>
+            </ul>
+            <p>Breaking rules may result in temporary or permanent bans.</p>
+        </div>
+        
+        <div class="card">
+            <h2>How to Join</h2>
+            <ol class="rules">
+                <li>Launch Minecraft Java Edition 1.20.4</li>
+                <li>Click "Multiplayer" then "Add Server"</li>
+                <li>Enter <code>minecraft.nieuserver.online</code> as the address</li>
+                <li>Click "Done" then select the server to join</li>
+            </ol>
+            <p>No whitelist - just connect and play.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 nieuserver.online</p>
+        <p>Minecraft is a trademark of Mojang Studios</p>
+    </footer>
+</body>
+</html>
