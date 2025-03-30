@@ -1,14 +1,18 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 ---
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Server | Nieuserver.online</title>
+    <title>H-S Minecraft MMO | Nieuserver.online</title>
     <style>
-        /* Consistent homepage styling */
+        /* Consistent styling with other pages */
         * {
             margin: 0;
             padding: 0;
@@ -23,17 +27,17 @@ import Layout from '../layouts/BlogPost.astro';
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 350px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -41,7 +45,7 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid #2e8b57;
+            border-bottom: 4px solid #d35400; /* MMO orange accent */
         }
         
         .dev-banner {
@@ -62,198 +66,263 @@ import Layout from '../layouts/BlogPost.astro';
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             padding: 30px;
             margin: 40px 0;
-            border: 1px solid #2e8b57;
+            border: 1px solid #d35400;
         }
         
         .card h2 {
-            color: #2e8b57;
+            color: #d35400;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            border-bottom: 2px solid #2e8b57;
+            border-bottom: 2px solid #d35400;
             padding-bottom: 8px;
         }
         
-        .server-info {
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
             background: #2a2a2a;
             padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-            font-family: monospace;
-            border: 1px solid #2e8b57;
-        }
-        
-        .rules li {
-            margin-bottom: 10px;
-            margin-left: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: #2e8b57;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #25734a;
-        }
-        
-        footer {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            border-top: 3px solid #2e8b57;
-        }
-        
-        nav {
-            background: #1a1a1a;
-            padding: 15px 0;
-            border-bottom: 2px solid #2e8b57;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-        }
-        
-        nav ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: #2e8b57;
-            background: rgba(46, 139, 87, 0.1);
-        }
-        
-        .active {
-            color: #2e8b57;
-            border-bottom: 2px solid #2e8b57;
-        }
-
-        /* Stats grid styling */
-        .server-stats {
-            background: #383838;
-            padding: 25px;
             border-radius: 8px;
-            margin: 30px 0;
-            border: 1px solid #2e8b57;
+            border-left: 4px solid #d35400;
         }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        
+        .feature-card h3 {
+            color: #d35400;
+            margin-bottom: 10px;
         }
-
-        .stat-item {
-            background: #2a2a2a;
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
-            border: 1px solid #2e8b57;
+        
+        .tech-pill {
+            display: inline-block;
+            background: rgba(211, 84, 0, 0.2);
+            color: #d35400;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            border: 1px solid #d35400;
         }
-
-        .stat-item .number {
-            font-size: 1.8rem;
+        
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #d35400;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-date {
+            color: #ff9800;
             font-weight: bold;
-            color: #2e8b57;
             margin-bottom: 5px;
         }
-
-        .stat-item .label {
-            color: #b0b0b0;
-            font-size: 0.9rem;
+        
+        .timeline-content {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
         }
-
-        /* Link styling */
-        a {
-            color: #2e8b57;
-            text-decoration: none;
+        
+        /* Special MMO elements */
+        .class-card {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #d35400;
         }
-
-        a:hover {
-            text-decoration: underline;
+        
+        .class-card h3 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+        
+        .skill-tree {
+            margin: 20px 0;
+            padding: 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .skill {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            color: #d35400;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="dev-banner">
-        🚧 Under Development - Targeting Q3 2025 Launch 🚧
+        🚧 H-S MMO RPG in Active Development - Pre-Alpha Stage 🚧
     </div>
     
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/minecraft" class="active">Minecraft</a></li>
-            <li><a href="/terraria">Terraria</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    
     <header>
-        <h1>Nieuserver Minecraft</h1>
-        <p>Vanilla+ survival with quality-of-life enhancements</p>
+        <h1>H-S Minecraft MMO RPG</h1>
+        <p>A custom-built MMORPG experience within Minecraft</p>
     </header>
     
     <div class="container">
         <div class="card">
-            <h2>Server Status</h2>
-            <div class="server-info">
-                <p><strong>Address:</strong> mc.nieuserver.online (Coming Soon)</p>
-                <p><strong>Version:</strong> 1.20.4 (Java Edition)</p>
-                <p><strong>Type:</strong> Survival with possible modded mode (Coming Soon)</p>
-            </div>
-        </div>
-
-        <div class="server-stats">
-            <h2>Server Progress</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="number">~10%</div>
-                    <div class="label">Server Hardware Setup Complete</div>
+            <h2>Core Vision</h2>
+            <p>H-S MMO is a complete reimagining of Minecraft as a true MMORPG, featuring:</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Persistent World</h3>
+                    <p>A massive, hand-crafted world with distinct regions, dungeons, and hidden secrets.</p>
                 </div>
-                <div class="stat-item">
-                    <div class="number">Early Development</div>
-                    <div class="label">Current Phase</div>
+                <div class="feature-card">
+                    <h3>Class System</h3>
+                    <p>8 unique classes with skill trees and specialized abilities.</p>
                 </div>
-                <div class="stat-item">
-                    <div class="number">Q3 2025</div>
-                    <div class="label">Target Launch</div>
+                <div class="feature-card">
+                    <h3>Quest System</h3>
+                    <p>Over 200 planned quests with branching storylines and meaningful rewards.</p>
                 </div>
             </div>
         </div>
         
         <div class="card">
-            <h2>Features</h2>
-            <ul class="rules">
-                <li>PaperMC for better performance</li>
-                <li>GriefPrevention for base protection</li>
-                <li>Dynmap for live world viewing</li>
-                <li>Optional texture packs</li>
-                <li>New server & gamemode in development - see more at: <a href="/custom_MC-game">H-S Minecraft</a></li>  
+            <h2>Technical Implementation</h2>
+            <p>Built using these core technologies:</p>
+            <div style="margin: 20px 0;">
+                <span class="tech-pill">Custom Java Plugin</span>
+                <span class="tech-pill">MySQL Database</span>
+                <span class="tech-pill">WorldEdit</span>
+                <span class="tech-pill">Custom Resource Pack</span>
+                <span class="tech-pill">BossBar API</span>
+                <span class="tech-pill">Packet Manipulation</span>
+            </div>
+            <p>The MMO will run on dedicated hardware separate from our main survival server.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Class System</h2>
+            <p>Choose from these specialized roles:</p>
+            
+            <div class="class-card">
+                <h3>Warrior</h3>
+                <p>Tank specialization with heavy armor and defensive abilities.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Shield Wall</span>: Reduce incoming damage by 50% for 5 seconds.
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Taunt</span>: Force enemies to attack you for 8 seconds.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <h3>Arcane Archer</h3>
+                <p>Ranged DPS with elemental arrows and mobility.</p>
+                <div class="skill-tree">
+                    <div class="skill">
+                        <span class="skill-name">Frost Arrow</span>: Slow enemies by 30% for 4 seconds.
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Volley</span>: Fire 5 arrows in a cone.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional classes would go here -->
+        </div>
+        
+        <div class="card">
+            <h2>Progression Systems</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Leveling</h3>
+                    <p>100 levels with increasing XP requirements. Gain stat points each level.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Gear Score</h3>
+                    <p>Items have tiered rarity (Common to Legendary) with random attributes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reputation</h3>
+                    <p>Earn faction reputation for unique rewards and quests.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Quest System Details</h2>
+            <ul>
+                <li><strong>Main Storyline</strong>: 50+ quest epic narrative with cutscenes</li>
+                <li><strong>Side Quests</strong>: Optional stories with unique rewards</li>
+                <li><strong>Daily Quests</strong>: Repeatable objectives for consistent progression</li>
+                <li><strong>Dungeon Quests</strong>: Multi-stage instanced content</li>
             </ul>
+            <div style="margin-top: 20px; background: #2a2a2a; padding: 15px; border-radius: 6px; border-left: 4px solid #d35400;">
+                <h3>Example Quest: "The Lost Artifact"</h3>
+                <p><strong>Level Requirement</strong>: 25+</p>
+                <p><strong>Objectives</strong>:
+                    <ol>
+                        <li>Speak to Archmage Velyn in Stormspire</li>
+                        <li>Recover the Ancient Tome from Duskwood Catacombs</li>
+                        <li>Defeat the Lich guarding the artifact</li>
+                    </ol>
+                </p>
+                <p><strong>Rewards</strong>: 1500 XP, +50 Stormspire Reputation, Tome of Arcane Knowledge (accessory)</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Development Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Q1 2025</div>
+                    <div class="timeline-content">
+                        <p>Core plugin architecture completed</p>
+                        <p>First region (Stormspire Valley) terrain generation</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q2 2025</div>
+                    <div class="timeline-content">
+                        <p>Class system implementation (4/8 classes)</p>
+                        <p>First 30 quests scripted</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q3 2025</div>
+                    <div class="timeline-content">
+                        <p>Closed alpha testing begins</p>
+                        <p>Dungeon system implementation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Join the Development</h2>
+            <p>Interested in testing or contributing?</p>
+            <a href="/contact" class="btn" style="background: #d35400; display: inline-block; padding: 10px 25px; border-radius: 5px; color: white; text-decoration: none;">Contact Us</a>
+            <p style="margin-top: 20px;">Follow our development blog for weekly updates.</p>
         </div>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
-        <p>Minecraft is a trademark of Mojang Studios</p>
-    </footer>
 </body>
 </html>
