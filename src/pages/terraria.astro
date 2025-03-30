@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,11 +124,56 @@ import Layout from '../layouts/BlogPost.astro';
             color: #8230ac;
             border-bottom: 2px solid #8230ac;
         }
+
+        /* Stats grid styling */
+        .server-stats {
+            background: #383838;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid #8230ac;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #8230ac;
+        }
+
+        .stat-item .number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8230ac;
+            margin-bottom: 5px;
+        }
+
+        .stat-item .label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Rules list styling */
+        .rules {
+            margin-left: 20px;
+        }
+
+        .rules li {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="dev-banner">
-        🚧 Under Development - Targeting Late 2025 Launch 🚧
+        🚧 Under Development - Targeting Q3 2025 Launch 🚧
     </div>
     
     <nav>
@@ -149,46 +195,55 @@ import Layout from '../layouts/BlogPost.astro';
         <div class="card">
             <h2>Server Details</h2>
             <div class="server-info">
-                <p><strong>Address:</strong> nieuserver.online (Coming Soon)</p>
-                <p><strong>Version:</strong> 1.4.4 </p>
+                <p><strong>Address:</strong> terraria.nieuserver.online (Coming Soon)</p>
+                <p><strong>Version:</strong> 1.4.4 (Journey's End)</p>
                 <p><strong>Type:</strong> Vanilla with TShock</p>
             </div>
         </div>
 
-         <section class="server-stats">
-            <h2>Server Status</h2>
+        <div class="server-stats">
+            <h2>Development Progress</h2>
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="number">~0%</div>
-                    <div class="label">Setup Pending</div>
+                    <div class="label">Setup Complete</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number">early development</div>
-                    <div class="label">Current Phase</div>
+                    <div class="number">Planning Phase</div>
+                    <div class="label">Current Stage</div>
                 </div>
                 <div class="stat-item">
                     <div class="number">Q3 2025</div>
                     <div class="label">Target Launch</div>
                 </div>
             </div>
-        </section>
+        </div>
         
         <div class="card">
             <h2>Features</h2>
             <ul class="rules">
-                <li>Let's play elements</li>
-                <li>Standard Terraria experience</li>
-                <li>community world</li>
-                <li> possible single/small scale personal server (Coming soon)
+                <li>Standard Terraria experience with TShock enhancements</li>
+                <li>Community world with collaborative building</li>
                 <li>Basic anti-grief protections</li>
                 <li>Regular world backups</li>
-                <li>Possible modded server in 2026</li>
+                <li>Possible personal/small-scale server option in future</li>
+                <li>Potential modded server (TModLoader) in 2026</li>
             </ul>
+        </div>
+
+        <div class="card">
+            <h2>Future Plans</h2>
+            <ul class="rules">
+                <li><strong>Phase 1 (2025):</strong> Vanilla server with quality-of-life plugins</li>
+                <li><strong>Phase 2 (2026):</strong> Optional modded server with curated modpack</li>
+                <li><strong>Ongoing:</strong> Community events and building projects</li>
+            </ul>
+            <p style="margin-top: 15px;">We'll prioritize stability before adding modded content.</p>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
+        <p>&copy; 2025 <span style="color: #8230ac; font-weight: bold;">nieuserver.online</span></p>
         <p>Terraria is a trademark of Re-Logic</p>
     </footer>
 </body>
