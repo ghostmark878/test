@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,12 +144,117 @@ import Layout from '../layouts/BlogPost.astro';
             color: #2e8b57;
             border-bottom: 2px solid #2e8b57;
         }
+
+        /* Stats grid styling */
+        .server-stats {
+            background: #383838;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid #2e8b57;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #2e8b57;
+        }
+
+        .stat-item .number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2e8b57;
+            margin-bottom: 5px;
+        }
+
+        .stat-item .label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Link styling */
+        a {
+            color: #2e8b57;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-        <section class="status">
-            <h3>Development Status</h3>
-            <p>We're in the final stages of preparation for our 2025 launch. Expect exciting updates soon!</p>
-        </section>
+    <div class="dev-banner">
+        🚧 Under Development - Targeting Q3 2025 Launch 🚧
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/minecraft" class="active">Minecraft</a></li>
+            <li><a href="/terraria">Terraria</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Nieuserver Minecraft</h1>
+        <p>Vanilla+ survival with quality-of-life enhancements</p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Server Status</h2>
+            <div class="server-info">
+                <p><strong>Address:</strong> mc.nieuserver.online (Coming Soon)</p>
+                <p><strong>Version:</strong> 1.20.4 (Java Edition)</p>
+                <p><strong>Type:</strong> Survival with possible modded mode (Coming Soon)</p>
+            </div>
+        </div>
+
+        <div class="server-stats">
+            <h2>Server Progress</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">~10%</div>
+                    <div class="label">Server Hardware Setup Complete</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">Early Development</div>
+                    <div class="label">Current Phase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">Q3 2025</div>
+                    <div class="label">Target Launch</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Features</h2>
+            <ul class="rules">
+                <li>PaperMC for better performance</li>
+                <li>GriefPrevention for base protection</li>
+                <li>Dynmap for live world viewing</li>
+                <li>Optional texture packs</li>
+                <li>New server & gamemode in development - see more at: <a href="/custom_MC-game">H-S Minecraft</a></li>  
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
+        <p>Minecraft is a trademark of Mojang Studios</p>
+    </footer>
 </body>
 </html>
