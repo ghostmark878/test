@@ -6,7 +6,7 @@ import Layout from '../layouts/BlogPost.astro';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Nieuserver.online | Premium Game Server Hub</title>
+    <title>About Nieuserver.online | Game Server Hub</title>
     <style>
         * {
             margin: 0;
@@ -22,17 +22,17 @@ import Layout from '../layouts/BlogPost.astro';
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 350px;
+            height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -40,51 +40,45 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid #4CAF50;
+            border-bottom: 3px solid #4CAF50;
         }
         
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
         
         .card {
             background: #383838;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            margin: 50px 0;
-            border: 1px solid #4CAF50;
+            border-radius: 6px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 3px solid #4CAF50;
         }
         
         .card h2 {
             color: #4CAF50;
-            margin-bottom: 25px;
-            font-size: 2rem;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
         
         .card p {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #b0b0b0;
-            font-size: 1.1rem;
         }
         
         footer {
             background: #1a1a1a;
             color: #e0e0e0;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            border-top: 3px solid #4CAF50;
+            padding: 25px 0;
+            margin-top: 50px;
+            border-top: 2px solid #4CAF50;
         }
         
         nav {
             background: #1a1a1a;
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 2px solid #4CAF50;
         }
         
@@ -93,130 +87,41 @@ import Layout from '../layouts/BlogPost.astro';
             justify-content: center;
             flex-wrap: wrap;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin: 8px 20px;
+            gap: 15px;
         }
         
         nav ul li a {
             color: #e0e0e0;
             text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
+            padding: 5px 10px;
             border-radius: 4px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
         }
         
         nav ul li a:hover {
             color: #4CAF50;
-            background: rgba(76, 175, 80, 0.1);
         }
         
         .active {
             color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-        }
-        
-        .pixel-divider {
-            height: 4px;
-            background: repeating-linear-gradient(
-                90deg,
-                #4CAF50,
-                #4CAF50 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            margin: 40px 0;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        
-        .feature-card {
-            background: #2a2a2a;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #4CAF50;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-card h3 {
-            color: #4CAF50;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .tech-item {
-            background: rgba(76, 175, 80, 0.1);
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: 1px solid #4CAF50;
-            color: #4CAF50;
             font-weight: bold;
         }
         
-        .timeline {
-            position: relative;
-            margin: 40px 0;
+        .features {
+            margin: 25px 0;
         }
         
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #4CAF50;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-date {
-            color: #ff9800;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-content {
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
+        .features li {
+            margin-bottom: 10px;
+            margin-left: 20px;
         }
         
         @media (max-width: 768px) {
             header {
-                height: 280px;
+                height: 250px;
             }
             
             header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .card {
-                padding: 30px;
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -233,129 +138,56 @@ import Layout from '../layouts/BlogPost.astro';
     </nav>
     
     <header>
-        <h1>The Nieuserver.online Story</h1>
-        <p>Where technology meets passion for gaming</p>
+        <h1>About Nieuserver.online</h1>
+        <p>A straightforward hub for game server information</p>
     </header>
     
     <div class="container">
         <div class="card">
-            <h2>Our Vision</h2>
-            <p>Nieuserver.online was born from a simple idea: to create the most reliable and user-friendly hub for game server management. We recognized that players deserve more than just servers—they deserve a complete ecosystem that enhances their gaming experience.</p>
-            <p>This website serves as the control center for our gaming community, offering real-time server analytics, community tools, and seamless access to our growing network of game worlds.</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Unified Dashboard</h3>
-                    <p>Monitor all your favorite servers from one intuitive interface with cross-game statistics and notifications.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Smart Monitoring</h3>
-                    <p>Our proprietary monitoring system checks server health every 30 seconds, with automated alerts for any issues.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Community Integration</h3>
-                    <p>Built-in tools for player communication, event planning, and shared achievements across all servers.</p>
-                </div>
-            </div>
+            <h2>What This Is</h2>
+            <p>Nieuserver.online is a website that provides information about our Minecraft and Terraria game servers. It's designed to be a simple, functional resource for players who want to connect to our servers or check their status.</p>
+            <p>We're not claiming to be the biggest or most advanced server network - just a place where friends and like-minded players can enjoy these games together.</p>
         </div>
         
-        <div class="pixel-divider"></div>
-        
         <div class="card">
-            <h2>Technical Excellence</h2>
-            <p>Behind the scenes, we've built a robust infrastructure designed for performance and scalability:</p>
-            
-            <div class="tech-stack">
-                <span class="tech-item">Cloudflare CDN</span>
-                <span class="tech-item">Docker Containers</span>
-                <span class="tech-item">Node.js Backend</span>
-                <span class="tech-item">WebSocket API</span>
-                <span class="tech-item">Redis Caching</span>
-                <span class="tech-item">PostgreSQL</span>
-            </div>
-            
-            <p>Our architecture handles 10,000+ concurrent users with sub-second response times, even during peak gaming hours. The website automatically scales resources based on demand, ensuring consistent performance worldwide.</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Global Edge Network</h3>
-                    <p>Content delivered through 200+ edge locations for low-latency access worldwide.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Zero-Downtime Updates</h3>
-                    <p>Blue-green deployment strategy ensures uninterrupted service during maintenance.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Enterprise Security</h3>
-                    <p>End-to-end encryption, DDoS protection, and daily vulnerability scans.</p>
-                </div>
-            </div>
+            <h2>What We Actually Offer</h2>
+            <ul class="features">
+                <li>Basic server status information (online/offline, player count)</li>
+                <li>Connection details for each server</li>
+                <li>Simple rules and guidelines</li>
+                <li>Occasional announcements about maintenance or updates</li>
+                <li>A contact form for support questions</li>
+            </ul>
+            <p>The website is hosted on a standard shared hosting plan, which keeps costs low but means we have typical limitations on traffic and performance.</p>
         </div>
         
-        <div class="pixel-divider"></div>
-        
         <div class="card">
-            <h2>Our Evolution</h2>
-            <p>The journey of Nieuserver.online reflects our commitment to continuous improvement:</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">January 2024</div>
-                    <div class="timeline-content">
-                        <p>Initial concept development and infrastructure planning. Launched first prototype with basic server status monitoring.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">June 2024</div>
-                    <div class="timeline-content">
-                        <p>Major redesign introducing the unified dashboard. Reached 1,000 active users with our Minecraft integration.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">November 2024</div>
-                    <div class="timeline-content">
-                        <p>Terraria server support added. Implemented real-time player tracking across all servers.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">March 2025</div>
-                    <div class="timeline-content">
-                        <p>Launched mobile-responsive interface and progressive web app capabilities.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <p>Today, we process over 50,000 daily requests from players across 15 countries, with plans to expand our server locations and game support throughout 2025.</p>
+            <h2>Technical Details</h2>
+            <p>For those interested in the technical side:</p>
+            <ul class="features">
+                <li>Static HTML/CSS website (no fancy frameworks)</li>
+                <li>Basic server status checks via PHP scripts</li>
+                <li>Mobile-responsive design (works okay on phones)</li>
+                <li>No user accounts or complex features</li>
+            </ul>
+            <p>We prioritize reliability over cutting-edge features. The site does what it needs to do without unnecessary complexity.</p>
         </div>
         
-        <div class="pixel-divider"></div>
-        
         <div class="card">
-            <h2>Future Roadmap</h2>
-            <p>We're constantly evolving to serve our community better. Here's what's coming next:</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Mobile App</h3>
-                    <p>Native iOS/Android applications for server management on the go.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>API Access</h3>
-                    <p>Developer tools for custom integrations and third-party apps.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Mod Marketplace</h3>
-                    <p>One-click mod installation with version control for supported games.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top: 30px;">Have suggestions? We actively incorporate community feedback into our development cycle.</p>
+            <h2>About the Servers</h2>
+            <p>Our game servers run on:</p>
+            <ul class="features">
+                <li>Minecraft: PaperMC with basic plugins</li>
+                <li>Terraria: TShock with standard configuration</li>
+            </ul>
+            <p>They're hosted on a mid-range VPS that can handle 20-30 concurrent players comfortably. We don't claim 100% uptime, but we do our best to keep them running smoothly.</p>
+            <p>These are community servers, not professional hosting services. We welcome players who want a casual, friendly experience.</p>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 <span style="color: #4CAF50; font-weight: bold;">nieuserver.online</span></p>
-        <p>Engineered for gamers, by gamers</p>
+        <p>&copy; 2025 nieuserver.online</p>
+        <p>A simple service for game server information</p>
     </footer>
 </body>
 </html>
