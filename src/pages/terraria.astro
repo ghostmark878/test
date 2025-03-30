@@ -1,11 +1,14 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Server | Nieuserver.online</title>
+    <title>Terraria Server | Nieuserver.online</title>
     <style>
-        /* Consistent homepage styling */
+        /* Consistent styling from homepage */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +30,7 @@
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 350px;
@@ -38,7 +41,7 @@
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid #2e8b57;
+            border-bottom: 4px solid #8230ac;
         }
         
         .dev-banner {
@@ -59,14 +62,14 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             padding: 30px;
             margin: 40px 0;
-            border: 1px solid #2e8b57;
+            border: 1px solid #8230ac;
         }
         
         .card h2 {
-            color: #2e8b57;
+            color: #8230ac;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            border-bottom: 2px solid #2e8b57;
+            border-bottom: 2px solid #8230ac;
             padding-bottom: 8px;
         }
         
@@ -76,27 +79,7 @@
             border-radius: 6px;
             margin: 20px 0;
             font-family: monospace;
-            border: 1px solid #2e8b57;
-        }
-        
-        .rules li {
-            margin-bottom: 10px;
-            margin-left: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: #2e8b57;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #25734a;
+            border: 1px solid #8230ac;
         }
         
         footer {
@@ -105,13 +88,13 @@
             text-align: center;
             padding: 30px 0;
             margin-top: 60px;
-            border-top: 3px solid #2e8b57;
+            border-top: 3px solid #8230ac;
         }
         
         nav {
             background: #1a1a1a;
             padding: 15px 0;
-            border-bottom: 2px solid #2e8b57;
+            border-bottom: 2px solid #8230ac;
         }
         
         nav ul {
@@ -132,61 +115,61 @@
         }
         
         nav ul li a:hover {
-            color: #2e8b57;
-            background: rgba(46, 139, 87, 0.1);
+            color: #8230ac;
+            background: rgba(130, 48, 172, 0.1);
         }
         
         .active {
-            color: #2e8b57;
-            border-bottom: 2px solid #2e8b57;
+            color: #8230ac;
+            border-bottom: 2px solid #8230ac;
         }
     </style>
 </head>
 <body>
     <div class="dev-banner">
-         Under Development - Targeting Q3 2025 Launch 
+        🚧 Under Development - Targeting Late 2025 Launch 🚧
     </div>
     
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/minecraft" class="active">Minecraft</a></li>
-            <li><a href="/terraria">Terraria</a></li>
+            <li><a href="/minecraft">Minecraft</a></li>
+            <li><a href="/terraria" class="active">Terraria</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     
     <header>
-        <h1>Nieuserver Minecraft</h1>
-        <p>Vanilla+ survival with quality-of-life enhancements</p>
+        <h1>Nieuserver Terraria</h1>
+        <p>Classic adventure with future modding potential</p>
     </header>
     
     <div class="container">
         <div class="card">
             <h2>Server Details</h2>
             <div class="server-info">
-                <p><strong>Address:</strong> mc.nieuserver.online (Coming Soon)</p>
-                <p><strong>Version:</strong> 1.20.4 (Java Edition)</p>
-                <p><strong>Type:</strong> Survival with land claims</p>
+                <p><strong>Address:</strong> terraria.nieuserver.online (Coming Soon)</p>
+                <p><strong>Version:</strong> 1.4.4 (Journey's End)</p>
+                <p><strong>Type:</strong> Vanilla with TShock</p>
             </div>
         </div>
         
         <div class="card">
             <h2>Features</h2>
             <ul class="rules">
-                <li>PaperMC for better performance</li>
-                <li>GriefPrevention for base protection</li>
-                <li>Dynmap for live world viewing</li>
-                <li>Optional texture packs</li>
-                <li>Regular community events</li>
+                <li>Standard Terraria experience</li>
+                <li>Basic anti-grief protections</li>
+                <li>Regular world backups</li>
+                <li>Possible modded server in 2026</li>
+                <li>Community boss events</li>
             </ul>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
-        <p>Minecraft is a trademark of Mojang Studios</p>
+        <p>&copy; 2025 <span style="color: #8230ac; font-weight: bold;">nieuserver.online</span></p>
+        <p>Terraria is a trademark of Re-Logic</p>
     </footer>
 </body>
 </html>
