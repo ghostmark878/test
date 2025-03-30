@@ -19,9 +19,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         }
         
         body {
-            background-color: #e8e8e8; /* Soft gray background */
-            color: #333;
+            background-color: #2a2a2a; /* Dark sleek gray */
+            color: #e0e0e0;
             line-height: 1.6;
+        }
+        
+        .dev-banner {
+            background: linear-gradient(90deg, #ff6b00, #ff9800);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .container {
@@ -31,8 +44,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         }
         
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 350px;
@@ -43,6 +56,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             text-align: center;
             color: white;
             padding: 0 20px;
+            border-bottom: 4px solid #4CAF50;
         }
         
         header h1 {
@@ -75,10 +89,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             border-radius: 5px;
             font-weight: bold;
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
         .btn:hover {
-            background: #45a049;
+            background: transparent;
+            border-color: #4CAF50;
             transform: translateY(-2px);
         }
         
@@ -91,23 +107,26 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         }
         
         .card {
-            background: white;
+            background: #383838;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 500px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            border: 1px solid #4CAF50;
         }
         
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
         
         .card-img {
             height: 180px;
             background-size: cover;
             background-position: center;
+            border-bottom: 3px solid #4CAF50;
         }
         
         .minecraft-img {
@@ -124,20 +143,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         
         .card-content h2 {
             margin-bottom: 10px;
-            color: #2c3e50;
+            color: #4CAF50;
         }
         
         .card-content p {
             margin-bottom: 15px;
-            color: #7f8c8d;
+            color: #b0b0b0;
         }
         
         footer {
-            background: #2c3e50;
-            color: white;
+            background: #1a1a1a;
+            color: #e0e0e0;
             text-align: center;
             padding: 25px 0;
             margin-top: 40px;
+            border-top: 3px solid #4CAF50;
         }
         
         footer .domain {
@@ -147,8 +167,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         }
         
         nav {
-            background: #2c3e50;
+            background: #1a1a1a;
             padding: 12px 0;
+            border-bottom: 2px solid #4CAF50;
         }
         
         nav ul {
@@ -163,48 +184,48 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         }
         
         nav ul li a {
-            color: white;
+            color: #e0e0e0;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
         
         nav ul li a:hover {
             color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
         }
         
         .status {
             text-align: center;
             margin: 30px 0;
-            padding: 15px;
-            background: #f0f0f0;
+            padding: 20px;
+            background: #383838;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ff9800;
         }
         
-        .status .dev-badge {
-            display: inline-block;
-            background: #ff9800;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .status h3 {
+            color: #ff9800;
             margin-bottom: 10px;
         }
         
         .server-stats {
-            background: white;
+            background: #383838;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             margin: 30px auto;
             max-width: 800px;
+            border: 1px solid #4CAF50;
         }
         
         .server-stats h2 {
             text-align: center;
             margin-bottom: 15px;
-            color: #2c3e50;
+            color: #4CAF50;
         }
         
         .stats-grid {
@@ -216,14 +237,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         .stat-item {
             text-align: center;
             padding: 12px;
-            background: #f9f9f9;
+            background: #2a2a2a;
             border-radius: 5px;
+            border: 1px solid #4CAF50;
         }
         
         .stat-item .number {
             font-size: 1.5rem;
             font-weight: bold;
             color: #4CAF50;
+        }
+
+        /* Pixel-inspired divider */
+        .pixel-divider {
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #4CAF50,
+                #4CAF50 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 20px 0;
         }
 
         /* Mobile responsiveness */
@@ -262,42 +297,48 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     </style>
 </head>
 <body>
+    <div class="dev-banner">
+        🚧 Under Active Development - Servers Launching Soon! 🚧
+    </div>
+    
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/minecraft">Minecraft Server</a></li>
-            <li><a href="/terraria">Terraria Server</a></li>
+            <li><a href="/minecraft">Minecraft</a></li>
+            <li><a href="/terraria">Terraria</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     
     <header>
-        <h1>Welcome to Nieuserver</h1>
-        <div class="domain">nieuserver.online</div>
-        <p>Your upcoming hub for Minecraft and Terraria servers. Currently in development!</p>
-        <a href="#servers" class="btn">Explore Servers</a>
+        <h1>Nieuserver.online</h1>
+        <div class="domain">Crafting Adventures Together</div>
+        <p>A premium server hub for Minecraft and Terraria enthusiasts. Currently in development—stay tuned for updates!</p>
+        <a href="#servers" class="btn">View Servers</a>
     </header>
     
     <div class="container">
+        <div class="pixel-divider"></div>
+        
         <section class="server-stats">
-            <h2>Server Statistics</h2>
+            <h2>Server Progress</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="number">~90%</div>
-                    <div class="label">Planned Uptime</div>
+                    <div class="number">~75%</div>
+                    <div class="label">Setup Complete</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number">0+</div>
-                    <div class="label">Active Players</div>
+                    <div class="number">Beta</div>
+                    <div class="label">Current Phase</div>
                 </div>
                 <div class="stat-item">
                     <div class="number">2</div>
                     <div class="label">Game Servers</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number">Coming Soon</div>
-                    <div class="label">Launch Date</div>
+                    <div class="number">Q4 2023</div>
+                    <div class="label">Target Launch</div>
                 </div>
             </div>
         </section>
@@ -307,8 +348,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 <div class="card-img minecraft-img"></div>
                 <div class="card-content">
                     <h2>Minecraft Server</h2>
-                    <p>Our Minecraft server is currently in development. Check back soon for updates on mods, gameplay, and launch events!</p>
-                    <a href="/minecraft" class="btn">Coming Soon</a>
+                    <p>Survival, mods, and minigames—all in development. Join our Discord for beta testing opportunities!</p>
+                    <a href="/minecraft" class="btn">Learn More</a>
                 </div>
             </div>
             
@@ -316,22 +357,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 <div class="card-img terraria-img"></div>
                 <div class="card-content">
                     <h2>Terraria Server</h2>
-                    <p>The Terraria server is being set up. Expect adventures, custom content, and a friendly community—stay tuned!</p>
-                    <a href="/terraria" class="btn">Coming Soon</a>
+                    <p>Adventure awaits in our custom Terraria world. Currently being configured—watch this space!</p>
+                    <a href="/terraria" class="btn">Learn More</a>
                 </div>
             </div>
         </section>
         
+        <div class="pixel-divider"></div>
+        
         <section class="status">
-            <div class="dev-badge">Under Development</div>
-            <h3>Server & Website Status</h3>
-            <p>Both servers and this website are currently in development. We appreciate your patience!</p>
+            <h3>Development Status</h3>
+            <p>We're working hard to bring you high-performance servers. Expect occasional downtime during setup.</p>
         </section>
     </div>
     
     <footer>
-        <p>&copy; 2023 <span class="domain">nieuserver.online</span> - All Rights Reserved</p>
-        <p>Follow our progress on Discord for updates!</p>
+        <p>&copy; 2023 <span class="domain">nieuserver.online</span></p>
+        <p>Follow us on Discord for real-time updates!</p>
     </footer>
 </body>
 </html>
