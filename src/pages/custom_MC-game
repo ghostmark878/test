@@ -146,67 +146,9 @@ import Layout from '../layouts/BlogPost.astro';
     </style>
 </head>
 <body>
-    <div class="dev-banner">
-         Under Development - Targeting Q3 2025 Launch 
-    </div>
-    
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/minecraft" class="active">Minecraft</a></li>
-            <li><a href="/terraria">Terraria</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <header>
-        <h1>Nieuserver Minecraft</h1>
-        <p>Vanilla+ survival with quality-of-life enhancements</p>
-    </header>
-    
-    <div class="container">
-        <div class="card">
-            <h2>Server Status</h2>
-            <div class="server-info">
-                <p><strong>Address:</strong> nieuserver.online (Coming Soon)</p>
-                <p><strong>Version:</strong> 1.20.4 (Java Edition)</p>
-                <p><strong>Type:</strong> Survival with possible modded mode (Comming Soon)</p>
-            </div>
-        </div>
-         <section class="server-stats">
-            <h2>Server Progress</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="number">~10%</div>
-                    <div class="label">Server Hardware Setup Complete</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">early development</div>
-                    <div class="label">Current Phase</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">Q2 2025</div>
-                    <div class="label">Target Launch</div>
-                </div>
-            </div>
+        <section class="status">
+            <h3>Development Status</h3>
+            <p>We're in the final stages of preparation for our 2025 launch. Expect exciting updates soon!</p>
         </section>
-        
-        <div class="card">
-            <h2>Features</h2>
-            <ul class="rules">
-                <li>PaperMC for better performance</li>
-                <li>GriefPrevention for base protection</li>
-                <li>Dynmap for live world viewing</li>
-                <li>Optional texture packs</li>
-                <li>New server & gamemode in development see more at:<a href="/custom_MC-game">H-S minecraft</a></li>  
-            </ul>
-        </div>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
-        <p>Minecraft is a trademark of Mojang Studios</p>
-    </footer>
 </body>
 </html>
