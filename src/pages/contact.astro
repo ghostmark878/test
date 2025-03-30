@@ -7,20 +7,9 @@ import Layout from '../layouts/BlogPost.astro';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Bug Reports | Nieuserver.online</title>
+    <title>Contact Us | Nieuserver.online</title>
     <style>
-        :root {
-            --bg-dark: #1a1a1a;
-            --card-bg: #383838;
-            --text-primary: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --accent-green: #4CAF50;
-            --accent-dark-green: #45a049;
-            --bug-red: #e74c3c;
-            --border-radius: 8px;
-            --transition: all 0.3s ease;
-        }
-        
+        /* Consistent styling with other pages */
         * {
             margin: 0;
             padding: 0;
@@ -29,8 +18,8 @@ import Layout from '../layouts/BlogPost.astro';
         }
         
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
+            background-color: #2a2a2a;
+            color: #e0e0e0;
             line-height: 1.6;
         }
         
@@ -53,16 +42,13 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid var(--accent-green);
+            border-bottom: 4px solid #4CAF50;
         }
         
         nav {
-            background: var(--bg-dark);
+            background: #1a1a1a;
             padding: 15px 0;
-            border-bottom: 2px solid var(--accent-green);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            border-bottom: 2px solid #4CAF50;
         }
         
         nav ul {
@@ -74,50 +60,44 @@ import Layout from '../layouts/BlogPost.astro';
         }
         
         nav ul li a {
-            color: var(--text-primary);
+            color: #e0e0e0;
             text-decoration: none;
             font-weight: bold;
             padding: 8px 15px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--accent-green);
+            color: #4CAF50;
             background: rgba(76, 175, 80, 0.1);
         }
         
         .active {
-            color: var(--accent-green);
-            border-bottom: 2px solid var(--accent-green);
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
         }
         
         .card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
+            background: #383838;
+            border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             padding: 30px;
             margin: 40px 0;
-            border: 1px solid var(--accent-green);
-            transition: var(--transition);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid #4CAF50;
         }
         
         .card h2 {
-            color: var(--accent-green);
+            color: #4CAF50;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-green);
+            border-bottom: 2px solid #4CAF50;
             padding-bottom: 8px;
         }
         
         .contact-method {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 25px;
             padding-bottom: 25px;
             border-bottom: 1px solid #444;
@@ -139,124 +119,59 @@ import Layout from '../layouts/BlogPost.astro';
             justify-content: center;
             margin-right: 20px;
             font-size: 1.5rem;
-            color: var(--accent-green);
-            flex-shrink: 0;
+            color: #4CAF50;
         }
         
         .bug-icon {
             background: rgba(231, 76, 60, 0.1);
-            color: var(--bug-red);
-        }
-        
-        .contact-info {
-            flex-grow: 1;
+            color: #e74c3c;
         }
         
         .contact-info h3 {
             margin-bottom: 5px;
-            color: var(--accent-green);
+            color: #4CAF50;
         }
         
         .bug-info h3 {
-            color: var(--bug-red);
+            color: #e74c3c;
         }
         
         .contact-info p {
-            color: var(--text-secondary);
-            margin-bottom: 10px;
+            color: #b0b0b0;
+            margin-bottom: 5px;
         }
         
         .btn {
             display: inline-block;
             padding: 10px 25px;
-            background: var(--accent-green);
+            background: #4CAF50;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             margin-top: 10px;
-            border: none;
-            cursor: pointer;
         }
         
         .btn:hover {
-            background: var(--accent-dark-green);
+            background: #45a049;
         }
         
         .btn-bug {
-            background: var(--bug-red);
+            background: #e74c3c;
         }
         
         .btn-bug:hover {
             background: #c0392b;
         }
         
-        /* Bug Report Form Styles */
-        .bug-form {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius);
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-primary);
-        }
-        
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            border-radius: var(--border-radius);
-            border: 1px solid #444;
-            background: #2a2a2a;
-            color: var(--text-primary);
-        }
-        
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-        
-        .btn-secondary {
-            background: #444;
-        }
-        
-        .btn-secondary:hover {
-            background: #555;
-        }
-        
         footer {
-            background: var(--bg-dark);
-            color: var(--text-primary);
+            background: #1a1a1a;
+            color: #e0e0e0;
             text-align: center;
             padding: 30px 0;
             margin-top: 40px;
-            border-top: 3px solid var(--accent-green);
-        }
-        
-        @media (max-width: 768px) {
-            .contact-method {
-                flex-direction: column;
-            }
-            
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
+            border-top: 3px solid #4CAF50;
         }
     </style>
 </head>
@@ -268,12 +183,13 @@ import Layout from '../layouts/BlogPost.astro';
             <li><a href="/terraria">Terraria</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact" class="active">Contact</a></li>
+            <li><a href="/bug-report">Bug Reports</a></li>
         </ul>
     </nav>
     
     <header>
-        <h1>Contact & Bug Reports</h1>
-        <p>Get support or report issues with our services</p>
+        <h1>Contact Nieuserver</h1>
+        <p>Get in touch with our team for support or inquiries</p>
     </header>
     
     <div class="container">
@@ -301,49 +217,14 @@ import Layout from '../layouts/BlogPost.astro';
         </div>
         
         <div class="card">
-            <h2>Bug Reporting System</h2>
+            <h2>Found a Bug?</h2>
             
             <div class="contact-method">
                 <div class="contact-icon bug-icon">🐛</div>
                 <div class="contact-info bug-info">
-                    <h3>Report a Bug</h3>
-                    <p>Found an issue with our services? Help us improve by reporting it.</p>
-                    <button id="show-bug-form" class="btn btn-bug">Report a Bug</button>
-                    
-                    <div id="bug-form" class="bug-form">
-                        <form id="bug-report-form">
-                            <div class="form-group">
-                                <label for="bug-title">Bug Title*</label>
-                                <input type="text" id="bug-title" required placeholder="Brief description of the issue">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="bug-game">Affected Game*</label>
-                                <select id="bug-game" required>
-                                    <option value="">Select a game</option>
-                                    <option value="minecraft">Minecraft Server</option>
-                                    <option value="terraria">Terraria Server</option>
-                                    <option value="website">Website</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="bug-description">Detailed Description*</label>
-                                <textarea id="bug-description" required placeholder="Please describe the bug in detail, including steps to reproduce if possible"></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="bug-contact">Your Email (optional)</label>
-                                <input type="email" id="bug-contact" placeholder="If you'd like us to follow up with you">
-                            </div>
-                            
-                            <div class="form-actions">
-                                <button type="button" id="cancel-bug-form" class="btn btn-secondary">Cancel</button>
-                                <button type="submit" class="btn btn-bug">Submit Report</button>
-                            </div>
-                        </form>
-                    </div>
+                    <h3>Bug Reports</h3>
+                    <p>Please use our dedicated bug report system to submit technical issues</p>
+                    <a href="/bug-report" class="btn btn-bug">Go to Bug Report Page</a>
                 </div>
             </div>
             
@@ -351,12 +232,11 @@ import Layout from '../layouts/BlogPost.astro';
                 <div class="contact-icon">ℹ️</div>
                 <div class="contact-info">
                     <h3>Bug Report Guidelines</h3>
-                    <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <ul style="margin-left: 20px; color: #b0b0b0;">
                         <li>Be as specific as possible about the issue</li>
                         <li>Include steps to reproduce the bug if you can</li>
                         <li>Mention when the issue first occurred</li>
                         <li>For server issues, include your username</li>
-                        <li>We'll review all reports but may not respond to each individually</li>
                     </ul>
                 </div>
             </div>
@@ -364,8 +244,8 @@ import Layout from '../layouts/BlogPost.astro';
         
         <div class="card">
             <h2>Before Contacting Us</h2>
-            <ul style="margin-left: 20px; color: var(--text-secondary);">
-                <li>Check our <a href="/about" style="color: var(--accent-green);">About page</a> for general information</li>
+            <ul style="margin-left: 20px; color: #b0b0b0;">
+                <li>Check our <a href="/about" style="color: #4CAF50;">About page</a> for general information</li>
                 <li>Server status is available on each game's page</li>
                 <li>Response time is typically within 24-48 hours</li>
                 <li>For hacked account issues, include your username and approximate registration date</li>
@@ -374,53 +254,8 @@ import Layout from '../layouts/BlogPost.astro';
     </div>
     
     <footer>
-        <p>&copy; 2025 <span style="color: var(--accent-green); font-weight: bold;">nieuserver.online</span></p>
+        <p>&copy; 2025 <span style="color: #4CAF50; font-weight: bold;">nieuserver.online</span></p>
         <p>We're not affiliated with Mojang or Re-Logic</p>
     </footer>
-    
-    <script>
-        // Bug Report Form Toggle
-        const showBugFormBtn = document.getElementById('show-bug-form');
-        const cancelBugFormBtn = document.getElementById('cancel-bug-form');
-        const bugForm = document.getElementById('bug-form');
-        const bugReportForm = document.getElementById('bug-report-form');
-        
-        showBugFormBtn.addEventListener('click', () => {
-            bugForm.style.display = 'block';
-            showBugFormBtn.style.display = 'none';
-        });
-        
-        cancelBugFormBtn.addEventListener('click', () => {
-            bugForm.style.display = 'none';
-            showBugFormBtn.style.display = 'inline-block';
-            bugReportForm.reset();
-        });
-        
-        // Form Submission Handler
-        bugReportForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                title: document.getElementById('bug-title').value,
-                game: document.getElementById('bug-game').value,
-                description: document.getElementById('bug-description').value,
-                contact: document.getElementById('bug-contact').value || 'Anonymous',
-                timestamp: new Date().toISOString()
-            };
-            
-            // Here you would normally send this data to your server
-            // For this example, we'll just log it and show a confirmation
-            console.log('Bug Report Submitted:', formData);
-            
-            // Show confirmation (in a real implementation, this would be after successful server submission)
-            alert('Thank you for your bug report! We appreciate your help in improving our services.');
-            
-            // Reset form
-            bugReportForm.reset();
-            bugForm.style.display = 'none';
-            showBugFormBtn.style.display = 'inline-block';
-        });
-    </script>
 </body>
 </html>
