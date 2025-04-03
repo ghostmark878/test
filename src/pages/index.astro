@@ -1,4 +1,3 @@
----
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -45,7 +44,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 350px;
@@ -127,14 +126,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             background-size: cover;
             background-position: center;
             border-bottom: 3px solid #4CAF50;
+            background-repeat: no-repeat;
         }
         
         .minecraft-img {
-            background-image: url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-image: url('/minecraft.webp');
+            background-color: #1a1a1a; /* Fallback color */
         }
         
         .terraria-img {
-            background-image: url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-image: url('/terraria.webp');
+            background-color: #1a1a1a; /* Fallback color */
         }
         
         .card-content {
@@ -343,7 +345,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         
         <section id="servers" class="server-cards">
             <div class="card">
-                <div class="card-img minecraft-img"></div>
+                <div class="card-img minecraft-img" aria-label="Minecraft Server" loading="lazy"></div>
                 <div class="card-content">
                     <h2>Minecraft Server</h2>
                     <p>Survival, mods, and minigames—currently in final testing phase. Join our Discord for early access!</p>
@@ -352,7 +354,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             </div>
             
             <div class="card">
-                <div class="card-img terraria-img"></div>
+                <div class="card-img terraria-img" aria-label="Terraria Server" loading="lazy"></div>
                 <div class="card-content">
                     <h2>Terraria Server</h2>
                     <p>Adventure awaits in our custom Terraria world. Finalizing configurations for 2025 launch!</p>
