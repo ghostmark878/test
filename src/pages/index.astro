@@ -1,15 +1,9 @@
----
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nieuserver.online - Minecraft & Terraria Server Hub</title>
+    <title>Game Servers - Minecraft & Terraria</title>
     <style>
         * {
             margin: 0;
@@ -21,81 +15,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         body {
             background-color: #2a2a2a;
             color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .dev-banner {
-            background: linear-gradient(90deg, #ff6b00, #ff9800);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-            border-bottom: 4px solid #4CAF50;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        header .domain {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #4CAF50;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .btn:hover {
-            background: transparent;
-            border-color: #4CAF50;
-            transform: translateY(-2px);
+            padding: 20px;
         }
         
         .server-cards {
@@ -104,6 +24,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             flex-wrap: wrap;
             gap: 20px;
             margin: 40px 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .card {
@@ -119,22 +41,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
         
         .card-img {
-            height: 180px;
+            height: 250px;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             border-bottom: 3px solid #4CAF50;
-        }
-        
-        .minecraft-img {
-            background-image: url('https://images.unsplash.com/photo-1587573089734-599851b0c8b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-        }
-        
-        .terraria-img {
-            background-image: url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
         }
         
         .card-content {
@@ -151,227 +65,43 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             color: #b0b0b0;
         }
         
-        footer {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 25px 0;
-            margin-top: 40px;
-            border-top: 3px solid #4CAF50;
-        }
-        
-        footer .domain {
-            font-weight: bold;
-            color: #4CAF50;
-            font-size: 1.1rem;
-        }
-        
-        nav {
-            background: #1a1a1a;
-            padding: 12px 0;
-            border-bottom: 2px solid #4CAF50;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin: 5px 15px;
-        }
-        
-        nav ul li a {
-            color: #e0e0e0;
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #4CAF50;
+            color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-        
-        nav ul li a:hover {
-            color: #4CAF50;
-            background: rgba(76, 175, 80, 0.1);
-        }
-        
-        .status {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: #383838;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            border: 1px solid #ff9800;
-        }
-        
-        .status h3 {
-            color: #ff9800;
-            margin-bottom: 10px;
-        }
-        
-        .server-stats {
-            background: #383838;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            margin: 30px auto;
-            max-width: 800px;
-            border: 1px solid #4CAF50;
-        }
-        
-        .server-stats h2 {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #4CAF50;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 12px;
-            background: #2a2a2a;
             border-radius: 5px;
-            border: 1px solid #4CAF50;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
         
-        .stat-item .number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4CAF50;
-        }
-
-        .pixel-divider {
-            height: 4px;
-            background: repeating-linear-gradient(
-                90deg,
-                #4CAF50,
-                #4CAF50 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            margin: 20px 0;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                height: 300px;
-                padding: 0 15px;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            header .domain {
-                font-size: 1.2rem;
-            }
-            
-            .server-stats {
-                padding: 15px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        .btn:hover {
+            background: #3e8e41;
         }
     </style>
 </head>
 <body>
-    <div class="dev-banner">
-        Under Active Development - Servers Launching in 2025!
+    <div class="server-cards">
+        <!-- Minecraft Card -->
+        <div class="card">
+            <div class="card-img" style="background-image: url('minecraft.webp')"></div>
+            <div class="card-content">
+                <h2>Minecraft Server</h2>
+                <p>Explore our custom Minecraft world with survival, mods, and minigames.</p>
+                <a href="#" class="btn">Join Server</a>
+            </div>
+        </div>
+        
+        <!-- Terraria Card -->
+        <div class="card">
+            <div class="card-img" style="background-image: url('terraria.webp')"></div>
+            <div class="card-content">
+                <h2>Terraria Server</h2>
+                <p>Adventure through our hand-crafted Terraria universe with friends.</p>
+                <a href="#" class="btn">Join Server</a>
+            </div>
+        </div>
     </div>
-    
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/minecraft">Minecraft</a></li>
-            <li><a href="/terraria">Terraria</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <header>
-        <h1>Nieuserver.online</h1>
-        <div class="domain">Crafting Adventures Together</div>
-        <p>A premium server hub for Minecraft and Terraria enthusiasts. Launching in 2025!</p>
-        <a href="#servers" class="btn">View Servers</a>
-    </header>
-    
-    <div class="container">
-        <div class="pixel-divider"></div>
-        
-        <section class="server-stats">
-            <h2>Server Progress</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="number">~50%</div>
-                    <div class="label">Setup Complete</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">early development</div>
-                    <div class="label">Current Phase</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">2</div>
-                    <div class="label">Game Servers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">Q2 2025</div>
-                    <div class="label">Target Launch</div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="servers" class="server-cards">
-            <div class="card">
-                <div class="card-img minecraft-img"></div>
-                <div class="card-content">
-                    <h2>Minecraft Server</h2>
-                    <p>Survival, mods, and minigames—currently in final testing phase. Join our Discord for early access!</p>
-                    <a href="/minecraft" class="btn">Learn More</a>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-img terraria-img"></div>
-                <div class="card-content">
-                    <h2>Terraria Server</h2>
-                    <p>Adventure awaits in our custom Terraria world. Finalizing configurations for 2025 launch!</p>
-                    <a href="/terraria" class="btn">Learn More</a>
-                </div>
-            </div>
-        </section>
-        
-        <div class="pixel-divider"></div>
-        
-        <section class="status">
-            <h3>Development Status</h3>
-            <p>We're in the final stages of preparation for our 2025 launch. Expect exciting updates soon!</p>
-        </section>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 <span class="domain">nieuserver.online</span></p>
-        <p>Follow us on Discord for launch announcements!</p>
-    </footer>
 </body>
 </html>
