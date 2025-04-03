@@ -31,7 +31,7 @@ import Layout from '../layouts/BlogPost.astro';
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('/terraria.webp');
             background-size: cover;
             background-position: center;
             height: 350px;
@@ -42,7 +42,7 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             color: white;
             padding: 0 20px;
-            border-bottom: 4px solid #2e8b57;
+            border-bottom: 4px solid #8230ac;
         }
         
         .dev-banner {
@@ -63,14 +63,14 @@ import Layout from '../layouts/BlogPost.astro';
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             padding: 30px;
             margin: 40px 0;
-            border: 1px solid #2e8b57;
+            border: 1px solid #8230ac;
         }
         
         .card h2 {
-            color: #2e8b57;
+            color: #8230ac;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            border-bottom: 2px solid #2e8b57;
+            border-bottom: 2px solid #8230ac;
             padding-bottom: 8px;
         }
         
@@ -80,7 +80,7 @@ import Layout from '../layouts/BlogPost.astro';
             border-radius: 6px;
             margin: 20px 0;
             font-family: monospace;
-            border: 1px solid #2e8b57;
+            border: 1px solid #8230ac;
         }
         
         footer {
@@ -89,13 +89,13 @@ import Layout from '../layouts/BlogPost.astro';
             text-align: center;
             padding: 30px 0;
             margin-top: 60px;
-            border-top: 3px solid #2e8b57;
+            border-top: 3px solid #8230ac;
         }
         
         nav {
             background: #1a1a1a;
             padding: 15px 0;
-            border-bottom: 2px solid #2e8b57;
+            border-bottom: 2px solid #8230ac;
         }
         
         nav ul {
@@ -116,13 +116,13 @@ import Layout from '../layouts/BlogPost.astro';
         }
         
         nav ul li a:hover {
-            color: #2e8b57;
+            color: #8230ac;
             background: rgba(130, 48, 172, 0.1);
         }
         
         .active {
-            color: #2e8b57;
-            border-bottom: 2px solid #2e8b57;
+            color: #8230ac;
+            border-bottom: 2px solid #8230ac;
         }
 
         /* Stats grid styling */
@@ -131,7 +131,7 @@ import Layout from '../layouts/BlogPost.astro';
             padding: 25px;
             border-radius: 8px;
             margin: 30px 0;
-            border: 1px solid #2e8b57;
+            border: 1px solid #8230ac;
         }
 
         .stats-grid {
@@ -146,13 +146,13 @@ import Layout from '../layouts/BlogPost.astro';
             padding: 15px;
             border-radius: 6px;
             text-align: center;
-            border: 1px solid #2e8b57;
+            border: 1px solid #8230ac;
         }
 
         .stat-item .number {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #2e8b57;
+            color: #8230ac;
             margin-bottom: 5px;
         }
 
@@ -168,6 +168,22 @@ import Layout from '../layouts/BlogPost.astro';
 
         .rules li {
             margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #8230ac;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #6a2691;
         }
     </style>
 </head>
@@ -188,6 +204,7 @@ import Layout from '../layouts/BlogPost.astro';
     
     <header>
         <h1>Nieuserver Terraria</h1>
+        <h2>terraria.nieuserver.online</h2>
         <p>Classic adventure with future modding potential</p>
     </header>
     
@@ -198,6 +215,7 @@ import Layout from '../layouts/BlogPost.astro';
                 <p><strong>Address:</strong> terraria.nieuserver.online (Coming Soon)</p>
                 <p><strong>Version:</strong> 1.4.4 (Journey's End)</p>
                 <p><strong>Type:</strong> Vanilla with TShock</p>
+                <a href="#" class="btn">Join Our Discord for Updates</a>
             </div>
         </div>
 
@@ -243,7 +261,7 @@ import Layout from '../layouts/BlogPost.astro';
     </div>
     
     <footer>
-        <p>&copy; 2025 <span style="color: #2e8b57; font-weight: bold;">nieuserver.online</span></p>
+        <p>&copy; 2025 <span style="color: #8230ac; font-weight: bold;">nieuserver.online</span></p>
         <p>Terraria is a trademark of Re-Logic</p>
     </footer>
 </body>
